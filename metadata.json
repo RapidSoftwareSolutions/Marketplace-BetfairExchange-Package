@@ -29,7 +29,7 @@
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected."
+          "info": "Required: JSON Object. The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected. See README for more info."
         },
         {
           "name": "locale",
@@ -55,7 +55,7 @@
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected."
+          "info": "Required: JSON Object. The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected. See README for more info."
         },
         {
           "name": "locale",
@@ -91,22 +91,22 @@
         {
           "name": "orderProjection",
           "type": "String",
-          "info": "Optionally restricts the results to the specified order status."
+          "info": "Optionally restricts the results to the specified order status. See README for more info."
         },
         {
           "name": "customerOrderRefs",
           "type": "JSON",
-          "info": "Optionally restricts the results to the specified customer order references."
+          "info": "JSON Array. Optionally restricts the results to the specified customer order references."
         },
         {
           "name": "customerStrategyRefs",
           "type": "JSON",
-          "info": "Optionally restricts the results to the specified customer strategy references."
+          "info": "JSON Array. Optionally restricts the results to the specified customer strategy references."
         },
         {
           "name": "dateRange",
           "type": "String",
-          "info": "Optionally restricts the results to be from/to the specified date, these dates are contextual to the orders being returned and therefore the dates used to filter on will change to placed, matched, voided or settled dates depending on the orderBy. This date is inclusive, i.e. if an order was placed on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned."
+          "info": "Optionally restricts the results to be from/to the specified date, these dates are contextual to the orders being returned and therefore the dates used to filter on will change to placed, matched, voided or settled dates depending on the orderBy. This date is inclusive, i.e. if an order was placed on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned. See README for more info."
         },
         {
           "name": "orderBy",
@@ -152,37 +152,37 @@
         {
           "name": "eventTypeIds",
           "type": "JSON",
-          "info": "Optionally restricts the results to the specified Event Type IDs."
+          "info": "JSON Array. Optionally restricts the results to the specified Event Type IDs."
         },
         {
           "name": "eventIds",
-          "type": "String",
-          "info": "Optionally restricts the results to the specified Event IDs."
+          "type": "JSON",
+          "info": "JSON Array. Optionally restricts the results to the specified Event IDs."
         },
         {
           "name": "marketIds",
           "type": "JSON",
-          "info": "Optionally restricts the results to the specified market IDs."
+          "info": "JSON Array. Optionally restricts the results to the specified market IDs."
         },
         {
           "name": "runnerIds",
-          "type": "String",
-          "info": "Optionally restricts the results to the specified Runners."
+          "type": "JSON",
+          "info": "JSON Array. Optionally restricts the results to the specified Runners."
         },
         {
           "name": "betIds",
-          "type": "String",
-          "info": "Optionally restricts the results to the specified bet IDs."
+          "type": "JSON",
+          "info": "JSON Array. Optionally restricts the results to the specified bet IDs."
         },
         {
           "name": "customerOrderRefs",
-          "type": "String",
-          "info": "Optionally restricts the results to the specified customer order references."
+          "type": "JSON",
+          "info": "JSON Array. Optionally restricts the results to the specified customer order references."
         },
         {
           "name": "customerStrategyRefs",
-          "type": "String",
-          "info": "Optionally restricts the results to the specified customer strategy references."
+          "type": "JSON",
+          "info": "JSON Array. Optionally restricts the results to the specified customer strategy references."
         },
         {
           "name": "side",
@@ -238,7 +238,7 @@
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
         },
         {
           "name": "locale",
@@ -264,7 +264,7 @@
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
         },
         {
           "name": "locale",
@@ -290,12 +290,12 @@
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
         },
         {
           "name": "marketProjection",
           "type": "JSON",
-          "info": "The type and amount of data returned about the market."
+          "info": "JSON Array. The type and amount of data returned about the market."
         },
         {
           "name": "sort",
@@ -367,7 +367,7 @@
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
         },
         {
           "name": "locale",
@@ -393,7 +393,7 @@
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
         },
         {
           "name": "granularity",
@@ -419,7 +419,7 @@
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
         },
         {
           "name": "locale",
@@ -450,7 +450,7 @@
         {
           "name": "instructions",
           "type": "JSON",
-          "info": "Required: The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange."
+          "info": "Required: JSON Array of Objects. The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange. See README for more info."
         },
         {
           "name": "customerRef",
@@ -460,7 +460,7 @@
         {
           "name": "marketVersion",
           "type": "JSON",
-          "info": "Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed."
+          "info": "JSON Object. Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed. See README for more info."
         },
         {
           "name": "customerStrategyRef",
@@ -496,7 +496,7 @@
         {
           "name": "instructions",
           "type": "JSON",
-          "info": "All instructions need to be on the same market. If not supplied all bets on the market (if market id is passed) are fully cancelled.  The limit of cancel instructions per request is 60"
+          "info": "JSON Array of Object. All instructions need to be on the same market. If not supplied all bets on the market (if market id is passed) are fully cancelled.  The limit of cancel instructions per request is 60. See README for more info."
         },
         {
           "name": "customerRef",
@@ -527,7 +527,7 @@
         {
           "name": "instructions",
           "type": "JSON",
-          "info": "Required: The number of replace instructions. The limit of replace instructions per request is 60."
+          "info": "Required: JSON Array of Objects. The number of replace instructions. The limit of replace instructions per request is 60. See README for more info."
         },
         {
           "name": "customerRef",
@@ -568,7 +568,7 @@
         {
           "name": "instructions",
           "type": "JSON",
-          "info": "Required: The number of update instructions. The limit of update instructions per request is 60"
+          "info": "Required: JSON Array of Objects. The number of update instructions. The limit of update instructions per request is 60. See README for more info."
         },
         {
           "name": "customerRef",
@@ -673,7 +673,7 @@
         {
           "name": "itemDateRange",
           "type": "JSON",
-          "info": "Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate."
+          "info": "JSON Object. Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate. See README for more info."
         },
         {
           "name": "includeItem",

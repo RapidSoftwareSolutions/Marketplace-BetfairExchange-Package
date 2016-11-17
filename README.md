@@ -165,9 +165,9 @@ Retrieve profit and loss for a given list of OPEN markets. The values are calcul
 | appKey            | credentials| Required: The Betfair Application Key.
 | sessionToken      | credentials| Required: The Betfair Session Token.
 | marketIds         | JSON       | Required: JSON Array. List of markets to calculate profit and loss
-| includeSettledBets| String     | Option to include settled bets (partially settled markets only). Defaults to false if not specified.
-| includeBspBets    | String     | Option to include BSP bets. Defaults to false if not specified.
-| netOfCommission   | String     | Option to return profit and loss net of users current commission rate for this market including any special tariffs. Defaults to false if not specified.
+| includeSettledBets| Boolean    | Option to include settled bets (partially settled markets only). Defaults to false if not specified.
+| includeBspBets    | Boolean    | Option to include BSP bets. Defaults to false if not specified.
+| netOfCommission   | Boolean    | Option to return profit and loss net of users current commission rate for this market including any special tariffs. Defaults to false if not specified.
 
 <a name="listMarketTypes"/>
 ## Betfair.listMarketTypes
