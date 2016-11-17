@@ -3679,6 +3679,48 @@ ___
 </tbody>
 </table>
 
+<a name="OrderBy"/>
+## OrderBy
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>BY_BET</p></td>
+<td align="left"><p>@Deprecated Use BY_PLACE_TIME instead. Order by placed time, then bet id.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>BY_MARKET</p></td>
+<td align="left"><p>Order by market id, then placed time, then bet id.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>BY_MATCH_TIME</p></td>
+<td align="left"><p>Order by time of last matched fragment (if any), then placed time, then bet id. Filters out orders which have no matched date. The dateRange filter (if specified) is applied to the matched date.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>BY_PLACE_TIME</p></td>
+<td align="left"><p>Order by placed time, then bet id. This is an alias of to be deprecated BY_BET. The dateRange filter (if specified) is applied to the placed date.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>BY_SETTLED_TIME</p></td>
+<td align="left"><p>Order by time of last settled fragment (if any due to partial market settlement), then by last match time, then placed time, then bet id. Filters out orders which have not been settled. The dateRange filter (if specified) is applied to the settled date.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>BY_VOID_TIME</p></td>
+<td align="left"><p>Order by time of last voided fragment (if any), then by last match time, then placed time, then bet id. Filters out orders which have not been voided. The dateRange filter (if specified) is applied to the voided date.</p></td>
+</tr>
+</tbody>
+</table>
+
 <a name="SortDir"/>
 ## SortDir
 
