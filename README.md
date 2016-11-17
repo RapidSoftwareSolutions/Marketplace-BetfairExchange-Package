@@ -152,8 +152,8 @@ Returns a list of information about published (ACTIVE/SUSPENDED) markets that do
 | appKey          | credentials| Required: The Betfair Application Key.
 | sessionToken    | credentials| Required: The Betfair Session Token.
 | filter          | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
-| marketProjection| JSON       | JSON Array. The type and amount of data returned about the market. Valid values: `COMPETITION`, `EVENT`, `EVENT_TYPE`, `MARKET_START_TIME`, `MARKET_DESCRIPTION`, `RUNNER_DESCRIPTION`, `RUNNER_METADATA`. See example at `JSON Object` section.
-| sort            | String     | Valid Values: `MINIMUM_TRADED` \n, `MAXIMUM_TRADED` \n `MINIMUM_AVAILABLE`\n `MAXIMUM_AVAILABLE` \n `FIRST_TO_START` \n `LAST_TO_START`.
+| marketProjection| JSON       | JSON Array. The type and amount of data returned about the market. Valid values: `COMPETITION`, `EVENT`, `EVENT_TYPE`, `MARKET_START_TIME`, `MARKET_DESCRIPTION`, `RUNNER_DESCRIPTION`, `RUNNER_METADATA`. Example: `["COMPETITION", "MARKET_DESCRIPTION"]`
+| sort            | String     | Valid Values: `MINIMUM_TRADED` <br>, `MAXIMUM_TRADED` <br> `MINIMUM_AVAILABLE`<br> `MAXIMUM_AVAILABLE` <br> `FIRST_TO_START` <br> `LAST_TO_START`.
 | maxResults      | Number     | Required: limit on the total number of results returned, must be greater than 0 and less than or equal to 1000.
 | locale          | String     | The language used for the response. If not specified, the default is returned.
 
@@ -282,7 +282,7 @@ Get available to bet amount. The getAccounts service will return the UK wallet b
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| wallet      | String([Wallet](#Wallet))      | Name of the wallet in question. Please Note: To return the the Australian Exchange wallet balance you must specify AUSTRALIAN as the Wallet parameter.
+| wallet      | String     | Name of the wallet in question. Please Note: To return the the Australian Exchange wallet balance you must specify AUSTRALIAN as the Wallet parameter.
 
 <a name="getDeveloperAppKeys"/>
 ## Betfair.getDeveloperAppKeys
@@ -304,8 +304,8 @@ Get account statement
 | fromRecord   | Number     | Specifies the first record that will be returned. Records start at index zero. If not specified then it will default to 0.
 | recordCount  | Number     | Specifies the maximum number of records to be returned. Note that there is a page size limit of 100.
 | itemDateRange| JSON([TimeRange](#TimeRange))       | JSON Array of Objects. Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate. See `TimeRange` example in `JSON Objects` section.
-| includeItem  | String([IncludeItem](#IncludeItem))     | Which items to include, if not specified then defaults to ALL. Valid values: `ALL`, `DEPOSITS_WITHDRAWALS`, `EXCHANGE`, `POKER_ROOM`
-| wallet       | String([Wallet](#Wallet))     | Name of the wallet in question. Please Note: To return the the Australian Exchange wallet balance you must specify AUSTRALIAN as the Wallet parameter.
+| includeItem  | String     | Which items to include, if not specified then defaults to ALL. Valid values: `ALL`, `DEPOSITS_WITHDRAWALS`, `EXCHANGE`, `POKER_ROOM`
+| wallet       | String     | Name of the wallet in question. Please Note: To return the the Australian Exchange wallet balance you must specify AUSTRALIAN as the Wallet parameter.
 
 <a name="listCurrencyRates"/>
 ## Betfair.listCurrencyRates
@@ -521,31 +521,31 @@ ___
 <td align="left"><p>eventTypeIds</p></td>
 <td align="left"><p>JSON Array</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict markets by event type associated with the market. (i.e., Football, Hockey, etc)</p></td>
+<td align="left"><p>Restrict markets by event type associated with the market. (i.e., Football, Hockey, etc). Example: `["exampleType", "exampleType2"]`</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>eventIds</p></td>
 <td align="left"><p>JSON Array</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict markets by the event id associated with the market.</p></td>
+<td align="left"><p>Restrict markets by the event id associated with the market.  Example: `["exampleId1", "exampleId2"]`.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>competitionIds</p></td>
 <td align="left"><p>JSON Array</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict markets by the competitions associated with the market.</p></td>
+<td align="left"><p>Restrict markets by the competitions associated with the market. Example: `["exampleId1", "exampleId2"]`.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>marketIds</p></td>
 <td align="left"><p>JSON Array</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict markets by the market id associated with the market.</p></td>
+<td align="left"><p>Restrict markets by the market id associated with the market. Example: `["exampleId1", "exampleId2"]`.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>venues</p></td>
 <td align="left"><p>JSON Array</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict markets by the venue associated withthe market. Currently only Horse Racing markets have venues.</p></td>
+<td align="left"><p>Restrict markets by the venue associated withthe market. Currently only Horse Racing markets have venues. Example: `["venue1", "venue2"]`</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>bspOnly</p></td>
@@ -569,34 +569,41 @@ ___
 <td align="left"><p>marketBettingTypes</p></td>
 <td align="left"><p>JSON Array</a></p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict to markets that match the betting type of the market (i.e. Odds, Asian Handicap Singles, or Asian Handicap Doubles. Valid values: `ODDS`, `LINE`, `RANGE`, `ASIAN_HANDICAP_DOUBLE_LINE`, `ASIAN_HANDICAP_SINGLE_LINE`, `FIXED_ODDS`. Example: ["ODDS", "LINE"]</p></td>
+<td align="left"><p>Restrict to markets that match the betting type of the market (i.e. Odds, Asian Handicap Singles, or Asian Handicap Doubles. Valid values: `ODDS`, `LINE`, `RANGE`, `ASIAN_HANDICAP_DOUBLE_LINE`, `ASIAN_HANDICAP_SINGLE_LINE`, `FIXED_ODDS`. Example: `["ODDS", "LINE"]`</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>marketCountries</p></td>
 <td align="left"><p>JSON Array</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict to markets that are in the specifiedcountry or countries</p></td>
+<td align="left"><p>Restrict to markets that are in the specifiedcountry or countries. Example: `["GBR"]`</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>marketTypeCodes</p></td>
 <td align="left"><p>JSON Array</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict to markets that match the type of the market (i.e., MATCH_ODDS, HALF_TIME_SCORE) . You should use this instead of relying on the market name as the market type codes are the same in all locales</p></td>
+<td align="left"><p>Restrict to markets that match the type of the market (i.e., MATCH_ODDS, HALF_TIME_SCORE) . You should use this instead of relying on the market name as the market type codes are the same in all locales. Example: `["MATCH_ODDS", "HALF_TIME_SCORE"]`</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>marketStartTime</p></td>
-<td align="left"><p><a href="#TimeRange">TimeRange</a></p></td>
+<td align="left"><p>JSON Object(<a href="#TimeRange">TimeRange)</a></p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict to markets with a market start time before or after the specified date</p></td>
+<td align="left"><p>Restrict to markets with a market start time before or after the specified date. SEe example bellow. </p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>withOrders</p></td>
 <td align="left"><p>JSON Array</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Restrict to markets that I have one or more orders in these status. Valid values: </p></td>
+<td align="left"><p>Restrict to markets that I have one or more orders in these status. Valid values: `PENDING`, `EXECUTION_COMPLETE`, `EXECUTABLE`, `EXPIRED`. Example: `["PENDING", "EXECUTION_COMPLETE"]`</p></td>
 </tr>
 </tbody>
 </table>
+
+Example:
+```json
+{
+	"textQuery": "Test bet"
+}
+```
 
 <a name="TimeRange"/>
 ## TimeRange 
@@ -653,31 +660,38 @@ ___
 </tr>
 <tr class="odd">
 <td align="left"><p>limitOrder</p></td>
-<td align="left"><p><a href="#LimitOrder">LimitOrder</a></p></td>
+<td align="left"><p>JSON Object(<a href="#LimitOrder">LimitOrder</a>)</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>A simple exchange bet for immediate execution</p></td>
+<td align="left"><p>A simple exchange bet for immediate execution. See example & description bellow.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>limitOnCloseOrder</p></td>
-<td align="left"><p><a href="#LimitOnCloseOrder">LimitOnCloseOrder</a></p></td>
+<td align="left"><p>JSON Object(<a href="#LimitOnCloseOrder">LimitOnCloseOrder</a>)</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Bets are matched if, and only if, the returned s=tarting price is better than a specified price. In the case of back bets, L=OC bets are matched if the calculated starting price is greater than the sp=ecified price. In the case of lay bets, LOC bets are matched if the startin=g price is less than the specified price. If the specified limit is equal t=o the starting price, then it may be matched, partially matched, or may not=be matched at all, depending on how much is needed to balance all bets aga=inst each other (MOC, LOC and normal exchange bets)</p></td>
+<td align="left"><p>Bets are matched if, and only if, the returned starting price is better than a specified price. In the case of back bets, LOC bets are matched if the calculated starting price is greater than the specified price. In the case of lay bets, LOC bets are matched if the starting price is less than the specified price. If the specified limit is equal to the starting price, then it may be matched, partially matched, or may notbe matched at all, depending on how much is needed to balance all bets against each other (MOC, LOC and normal exchange bets). See example & description bellow.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>marketOnCloseOrder</p></td>
-<td align="left"><p><a href="#MarketOnCloseOrder">MarketOnCloseOrde r</a></p></td>
+<td align="left"><p>JSON Object(<a href="#MarketOnCloseOrder">MarketOnCloseOrder)</a></p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Bets remain unmatched until the market is reconc=iled. They are matched and settled at a price that is representative of the=market at the point the market is turned in-play. The market is reconciled=to find a starting price and MOC bets are settled at whatever starting pri=ce is returned. MOC bets are always matched and settled, unless a starting =price is not available for the selection. Market on Close bets can only be =placed before the starting price is determined</p></td>
+<td align="left"><p>Bets remain unmatched until the market is reconciled. They are matched and settled at a price that is representative of the market at the point the market is turned in-play. The market is reconciled to find a starting price and MOC bets are settled at whatever starting price is returned. MOC bets are always matched and settled, unless a starting price is not available for the selection. Market on Close bets can only be placed before the starting price is determined. See example & description bellow.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>customerOrderRef</p></td>
 <td align="left"><p>String</p></td>
-<td align="left"><p>&amp;nbs=p;</p></td>
-<td align="left"><p>An optional reference customers ca=n set to identify instructions.. No validation will be done on uniqueness a=nd the string is limited <br />
-ters. If an empty string is provided it will be treated as null.</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>An optional reference customers can set to identify instructions.. No validation will be done on uniqueness and the string is limited  ters. If an empty string is provided it will be treated as null.</p></td>
 </tr>
 </tbody>
 </table>
+
+Example:
+```json
+{
+	"orderType": "LIMIT",
+	"selectionId": 1
+}
+```
 
 <a name="LimitOrder"/>
 ## LimitOrder 
@@ -702,7 +716,7 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 <td align="left"><p>size</p></td>
 <td align="left"><p>double</p></td>
 <td align="left"><p>Yes</p></td>
-<td align="left"><p>The size of the bet. <strong>Please note</strong>: For market type EACH_WAY. The total stake =3D size x 2</p></td>
+<td align="left"><p>The size of the bet. <strong>Please note</strong>: For market type EACH_WAY. The total stake size x 2</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>price</p></td>
@@ -714,12 +728,11 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 <td align="left"><p>persistenceType</p></td>
 <td align="left"><p>String</p></td>
 <td align="left"><p>Yes</p></td>
-<td align="left"><p>What to do with the order at turn-in-play. Valid values: `LAPSE`, `PERSIST`, `MARKET_ON_CLOSE`.</p>
-<p>=</p></td>
+<td align="left"><p>What to do with the order at turn-in-play. Valid values: `LAPSE`, `PERSIST`, `MARKET_ON_CLOSE`.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>timeInForce</p></td>
-<td align="left"><p><a href="#TimeInForce">TimeInForce</a>=</p></td>
+<td align="left"><p>String</p></td>
 <td align="left"><p>No</p></td>
 <td align="left">The type of TimeInForce value to use. This value takes precedence over any PersistenceType value chosen. Valid value: FILL_OR_KILL<br />
 </td>
@@ -747,6 +760,15 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 </tr>
 </tbody>
 </table>
+
+Example: 
+```json
+{
+	"size": 12.99,
+	"price": 15,
+	"persistenceType": "LAPSE"
+}
+```
 
 <a name="LimitOnCloseOrder"/>
 ## LimitOnCloseOrder 
@@ -782,6 +804,14 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 </tbody>
 </table>
 
+Example: 
+```json
+{
+	"liability": 12.99,
+	"price": 15
+}
+```
+
 <a name="MarketOnCloseOrder"/>
 ## MarketOnCloseOrder 
 
@@ -809,6 +839,13 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 </tr>
 </tbody>
 </table>
+
+Example: 
+```json
+{
+	"liability": 12.99,
+}
+```
 
 <a name="CancelInstruction"/>
 ## CancelInstruction 
@@ -912,8 +949,31 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 </tbody>
 </table>
 
-<a name="MarketProjection"/>
-## MarketProjection
-```json
-["COMPETITION", "MARKET_DESCRIPTION"]
-```
+
+<a name="MarketVersion"/>
+## MarketVersion 
+
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Field name</th>
+<th align="left">Type</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+<td align="left"><p>version</p></td>
+<td align="left"><p>Long</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>A non-monotonically increasing number indicating market changes</p></td>
+</tr>
+</tbody>
+</table>
