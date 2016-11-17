@@ -4216,6 +4216,117 @@ Using minFillSize is not supported where the time in force of the request (as op
 </tbody>
 </table>
 
+
+<a name="GroupBy"/>
+## GroupBy
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>EVENT_TYPE</p></td>
+<td align="left"><p>A roll up of settled P&L, commission paid and number of bet orders, on a specified event type</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>EVENT</p></td>
+<td align="left"><p>A roll up of settled P&L, commission paid and number of bet orders, on a specified event type</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>MARKET</p></td>
+<td align="left"><p>A roll up of settled P&L, commission paid and number of bet orders, on a specified market</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>SIDE</p></td>
+<td align="left"><p>An averaged roll up of settled P&L, and number of bets, on the specified side of a specified selection within a specified market, that are either settled or voided</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>BET</p></td>
+<td align="left"><p>The P&L, commission paid, side and regulatory information etc, about each individual bet order</p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="BetStatus"/>
+## BetStatus
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>SETTLED</p></td>
+<td align="left"><p>A matched bet that was settled normally</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>VOIDED</p></td>
+<td align="left"><p>A matched bet that was subsequently voided by Betfair, before, during or after settlement</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>LAPSED</p></td>
+<td align="left"><p>Unmatched bet that was cancelled by Betfair (for example at turn in play).</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>CANCELLED</p></td>
+<td align="left"><p>Unmatched bet that was cancelled by an explicit customer action.</p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="marketType"/>
+## marketType - Legacy Data
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>A</p></td>
+<td align="left"><p>Asian Handicap</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>L</p></td>
+<td align="left"><p>Line market</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>O</p></td>
+<td align="left"><p>Odds market</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>R</p></td>
+<td align="left"><p>Range market.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>NOT_APPLICABLE</p></td>
+<td align="left"><p>The market does not have an applicable marketType.</p></td>
+</tr>
+</tbody>
+</table>
+
 <a name="TimeInForce"/>
 ## TimeInForce
 
