@@ -3361,7 +3361,7 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 
 ___
 
-#Enums
+#Exchange Enums
 
 <a name="MarketProjection"/>
 ## MarketProjection
@@ -4371,6 +4371,274 @@ Using minFillSize is not supported where the time in force of the request (as op
 <tr class="even">
 <td align="left"><p>PAYOUT</p></td>
 <td align="left"><p>The total payout requested on a LimitOrder</p></td>
+</tr>
+</tbody>
+</table>
+
+#Account Enums
+
+<a name="SubscriptionStatus"/>
+## SubscriptionStatus
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>ALL</p></td>
+<td align="left"><p>Any subscription status</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>ACTIVATED</p></td>
+<td align="left"><p>Only activated subscriptions</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>UNACTIVATED</p></td>
+<td align="left"><p>Only unactivated subscriptions</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>CANCELLED</p></td>
+<td align="left"><p>Only cancelled subscriptions</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>EXPIRED</p></td>
+<td align="left"><p>Only expired subscriptions</p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="Status"/>
+## Status
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>SUCCESS</p></td>
+<td align="left"><p>Sucess status</p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="ItemClass"/>
+## ItemClass
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>UNKNOWN</p></td>
+<td align="left"><p>Statement item not mapped to a specific class. All values will be concatenated into a single key/value pair. The key will be 'unknownStatementItem' and the value will be a comma separated string.</p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="Wallet"/>
+## Wallet
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>UK</p></td>
+<td align="left"><p>The UK Exchange wallet</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>AUSTRALIAN</p></td>
+<td align="left"><p>The Australian Exchange wallet - THIS IS NOW DEPRECATED</p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="IncludeItem"/>
+## IncludeItem
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>ALL</p></td>
+<td align="left"><p>Include all items</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>DEPOSITS_WITHDRAWALS</p></td>
+<td align="left"><p>Include payments only</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>EXCHANGE</p></td>
+<td align="left"><p></p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>POKER_ROOM</p></td>
+<td align="left"><p></p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="winLose"/>
+## winLose
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>RESULT_ERR</p></td>
+<td align="left"><p>Internal error</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>RESULT_FIX</p></td>
+<td align="left"><p>Result has been updated after an initial state. i.e. your account history has been changed to reflect this.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>RESULT_LOST</p></td>
+<td align="left"><p>Loss</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>RESULT_NOT_APPLICABLE</p></td>
+<td align="left"><p>Include poker transactions only</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>RESULT_WON</p></td>
+<td align="left"><p>Won</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>COMMISSION_REVERSAL</p></td>
+<td align="left"><p>Betfair have restored the funds to your account that it previously received from you in commission.</p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="GrantType"/>
+## GrantType
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>AUTHORISATION_CODE</p></td>
+<td align="left"><p>AUTHORISATION CODE</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>REFRESH_TOKEN</p></td>
+<td align="left"><p>REFRESH TOKEN</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>REFRESH_TOKEN</p></td>
+<td align="left"><p>REFRESH TOKEN</p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="TokenType"/>
+## TokenType
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>BEARER</p></td>
+<td align="left"><p></p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="AffiliateRelationStatus"/>
+## AffiliateRelationStatus
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>INVALID_USER</p></td>
+<td align="left"><p>Provided vendor client ID is not valid</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>AFFILIATED</p></td>
+<td align="left"><p>Vendor client ID valid and affiliated</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>NOT_AFFILIATED</p></td>
+<td align="left"><p>Vendor client ID valid but not affiliated</p></td>
 </tr>
 </tbody>
 </table>
