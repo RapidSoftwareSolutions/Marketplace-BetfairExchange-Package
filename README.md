@@ -1,20 +1,19 @@
 # Betfair Package
 
-DEVELOP CUSTOM APPS & TURBO CHARGE YOUR BETTING STRATEGY
+Develop custom apps & turbo charge your betting strategy.
 
 * Domain: betfair.com
 * Credentials: appKey, sessionToken
 
 ## How to get credentials: 
 0. Login into your Betfair account via [www.betfair.com](http://betfair.com)
-1. Using a *separate browser window*, click on the Accounts API Demo Tool link & ensure the Endpoint "UK"/"PROD" is selected.
-2. Select the *createDeveloperAppKeys* operation from the list of Operations on the top left hand side of the Demo Tool. Your *sessionToken* will be automatically added to the 'Session Token (ssoid)' text box.
-3. Enter your *Application Name* (this must be unique) in the '*Request*' column.
-4. Press *Execute* at the bottom of the '*Request*' column.
-5. Your *Application Key* will be returned in the right hand side panel of the Demo Tool under the Application Key column.  Please note:  You may need to expand the *Application Key* column to see the full *Application Key* value which is 16 characters in total. The assigned *Application Key* can be retrieved at anytime using the *getDeveloperAppKeys* request. 
+1. Using a **separate browser window**, click on the Accounts API Demo Tool link & ensure the Endpoint "UK"/"PROD" is selected.
+2. Select the **createDeveloperAppKeys** operation from the list of Operations on the top left hand side of the Demo Tool. Your **sessionToken** will be automatically added to the 'Session Token (ssoid)' text box.
+3. Enter your **Application Name** (this must be unique) in the '**Request**' column.
+4. Press **Execute** at the bottom of the '**Request**' column.
+5. Your **Application Key** will be returned in the right hand side panel of the Demo Tool under the Application Key column.  Please note:  You may need to expand the **Application Key** column to see the full **Application Key** value which is 16 characters in total. The assigned **Application Key** can be retrieved at anytime using the **getDeveloperAppKeys** request. 
 
-The *Application Key* returned provides access to betting operations and delayed odds data - to be used for development and testing. Please apply for a live Application Key using the application form below once you have completed your development.
-
+The **Application Key** returned provides access to betting operations and delayed odds data - to be used for development and testing. Please apply for a live Application Key using the application form below once you have completed your development.
 
 
 ## TOC: 
@@ -64,7 +63,7 @@ Returns a list of Competitions (i.e., World Cup 2013) associated with the market
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
+| filter      | JSON([MarketFilter](#MarketFilter))       | Required: JSON Object. The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
 | locale      | String     | The language used forthe response. If notspecified, the default isreturned.
 
 <a name="listCountries"/>
@@ -75,7 +74,7 @@ Returns a list of Countries associated with the markets selected by the MarketFi
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
+| filter      | JSON([MarketFilter](#MarketFilter))       |  JSON Object. Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
 | locale      | String     | The language used forthe response. If notspecified, the default isreturned.
 
 <a name="listCurrentOrders"/>
@@ -129,7 +128,7 @@ Returns a list of Events (i.e, Reading vs. Man United) associated with the marke
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter      | JSON([MarketFilter](#MarketFilter))       | Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
 <a name="listEventTypes"/>
@@ -140,7 +139,7 @@ Returns a list of Event Types (i.e. Sports) associated with the markets selected
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter      | JSON([MarketFilter](#MarketFilter))       | Required:  JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
 <a name="listMarketCatalogue"/>
@@ -172,18 +171,18 @@ Retrieve profit and loss for a given list of OPEN markets. The values are calcul
 
 <a name="listMarketTypes"/>
 ## Betfair.listMarketTypes
-Method description
+Returns a list of market types (i.e. MATCH_ODDS, NEXT_GOAL) associated with the markets selected by the MarketFilter. The market types are always the same, regardless of locale.
 
 | Field       | Type       | Description
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter      | JSON([MarketFilter](#MarketFilter))       | Required:  JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
 <a name="listTimeRanges"/>
 ## Betfair.listTimeRanges
-Method description
+Returns a list of time ranges in the granularity specified in the request (i.e. 3PM to 4PM, Aug 14th to Aug 15th) associated with the markets selected by the MarketFilter.
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -194,27 +193,27 @@ Method description
 
 <a name="listVenues"/>
 ## Betfair.listVenues
-Method description
+Returns a list of Venues (i.e. Cheltenham, Ascot) associated with the markets selected by the MarketFilter. Currently, only Horse Racing markets are associated with a Venue.
 
 | Field       | Type       | Description
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))    | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter      | JSON([MarketFilter](#MarketFilter))    | Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
 <a name="placeOrders"/>
 ## Betfair.placeOrders
-Method description
+Place new orders into market. This operation is atomic in that all orders will be placed or none will be placed. Please note that additional bet sizing rules apply to bets placed into the Italian Exchange.
 
 | Field              | Type       | Description
 |--------------------|------------|----------
 | appKey             | credentials| Required: The Betfair Application Key.
 | sessionToken       | credentials| Required: The Betfair Session Token.
 | marketId           | String     | Required: The market id these orders are to be placed on
-| instructions       | JSON([PlaceInstruction](#PlaceInstruction))       | Required: The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange.
+| instructions       | JSON([PlaceInstruction](#PlaceInstruction))       | Required: JSON Object. The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange.
 | customerRef        | String     | Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.   CustomerRef can contain: upper/lower chars, digits, chars : - . _ + * : ; ~ only. Please note: There is a time window associated with the de-duplication of duplicate submissions which is 60 seconds.
-| marketVersion      | JSON([MarketVersion](#MarketVersion))        | Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.
+| marketVersion      | JSON([MarketVersion](#MarketVersion))        |  JSON Object. Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.
 | customerStrategyRef| String     | An optional reference customers can use to specify which strategy has sent the order. The reference will be returned on order change messages through the stream API. The string is limited to 15 characters. If an empty string is provided it will be treated as null.
 | async              | String     | An optional flag (not setting equates to false) which specifies if the orders should be placed asynchronously. Orders can be tracked via the Exchange Stream API or or the API-NG by providing a customerOrderRef for each place order. An order's status will be PENDING and no bet ID will be returned. 
 
@@ -227,7 +226,7 @@ Cancel all bets OR cancel all bets on a market OR fully or partially cancel part
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
 | marketId    | String     | If marketId and betId aren't supplied all bets are cancelled
-| instructions| JSON([CancelInstruction](#CancelInstruction))       | All instructions need to be on the same market. If not supplied all bets on the market (if market id is passed) are fully cancelled.  The limit of cancel instructions per request is 60
+| instructions| JSON([CancelInstruction](#CancelInstruction))       |  JSON Array of Objects. All instructions need to be on the same market. If not supplied all bets on the market (if market id is passed) are fully cancelled.  The limit of cancel instructions per request is 60
 | customerRef | String     | Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.
 
 <a name="replaceOrders"/>
@@ -239,7 +238,7 @@ This operation is logically a bulk cancel followed by a bulk place. The cancel i
 | appKey       | credentials| Required: The Betfair Application Key.
 | sessionToken | credentials| Required: The Betfair Session Token.
 | marketId     | String     | Required: The market id these orders are to be placed on
-| instructions | JSON([ReplaceInstruction](#ReplaceInstruction))       | Required: The number of replace instructions. The limit of replace instructions per request is 60.
+| instructions | JSON([ReplaceInstruction](#ReplaceInstruction))       | Required: JSON Array of Objects The number of replace instructions. The limit of replace instructions per request is 60.
 | customerRef  | String     | Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.
 | marketVersion| String     | Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.
 | async        | String     | An optional flag (not setting equates to false) which specifies if the orders should be replaced asynchronously. Orders can be tracked via the Exchange Stream API or the API-NG by providing a customerOrderRef for each replace order. Not available for MOC or LOC bets.
@@ -253,7 +252,7 @@ Update non-exposure changing fields
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
 | marketId    | String     | Required: The market id these orders are to be placed on
-| instructions| JSON([UpdateInstruction](#UpdateInstruction))     | Required: The number of update instructions. The limit of update instructions per request is 60
+| instructions| JSON([UpdateInstruction](#UpdateInstruction))     | Required: JSON Array of Objects. The number of update instructions. The limit of update instructions per request is 60
 | customerRef | String     | Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.
 
 <a name="createDeveloperAppKeys"/>
@@ -303,7 +302,7 @@ Get account statement
 | locale       | String     | The language to be used where applicable. If not specified, the customer account default is returned.
 | fromRecord   | Number     | Specifies the first record that will be returned. Records start at index zero. If not specified then it will default to 0.
 | recordCount  | Number     | Specifies the maximum number of records to be returned. Note that there is a page size limit of 100.
-| itemDateRange| JSON([TimeRange](#TimeRange))       | Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate.
+| itemDateRange| JSON([TimeRange](#TimeRange))       | JSON Array of Objects. Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate.
 | includeItem  | String([IncludeItem](#IncludeItem))     | Which items to include, if not specified then defaults to ALL.
 | wallet       | String([Wallet](#Wallet))     | 
 
@@ -319,7 +318,7 @@ Returns a list of currency rates based on given currency. Please note: the curre
 
 <a name="cancelApplicationSubscription"/>
 ## Betfair.cancelApplicationSubscription
-Method description
+Cancel the subscription token. The customers subscription will no longer be active once cancelled.
 
 | Field            | Type       | Description
 |------------------|------------|----------
@@ -351,7 +350,7 @@ Used to create new subscription tokens for an application. Returns the newly gen
 
 <a name="listAccountSubscriptionTokens"/>
 ## Betfair.listAccountSubscriptionTokens
-Method description
+List of subscription tokens associated with the account
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -400,7 +399,7 @@ Return relation between a list of users and an affiliate
 
 <a name="getVendorDetails"/>
 ## Betfair.getVendorDetails
-Method description
+Return details about a vendor from its identifier. Response includes Vendor Name and URL.
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -410,7 +409,7 @@ Method description
 
 <a name="checkAccountSubscriptionToWebApp"/>
 ## Betfair.checkAccountSubscriptionToWebApp
-Method description
+Return details about a vendor from its identifier. Response includes Vendor Name and URL.
 
 | Field       | Type       | Description
 |-------------|------------|----------
