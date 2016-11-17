@@ -10,17 +10,17 @@ DEVELOP CUSTOM APPS & TURBO CHARGE YOUR BETTING STRATEGY
 1. Item two
 
 ## TOC: 
-* [ObjectCompetitions](#ObjectCompetitions)
-* [ObjectCountries](#ObjectCountries)
-* [ObjectCurrentOrders](#ObjectCurrentOrders)
-* [ObjectClearedOrders](#ObjectClearedOrders)
-* [ObjectEvents](#ObjectEvents)
-* [ObjectEventTypes](#ObjectEventTypes)
-* [ObjectMarketCatalogue](#ObjectMarketCatalogue)
-* [ObjectMarketProfitAndLoss](#ObjectMarketProfitAndLoss)
-* [ObjectMarketTypes](#ObjectMarketTypes)
-* [ObjectTimeRanges](#ObjectTimeRanges)
-* [ObjectVenues](#ObjectVenues)
+* [listCompetitions](#listCompetitions)
+* [listCountries](#listCountries)
+* [listCurrentOrders](#listCurrentOrders)
+* [listClearedOrders](#listClearedOrders)
+* [listEvents](#listEvents)
+* [listEventTypes](#listEventTypes)
+* [listMarketCatalogue](#listMarketCatalogue)
+* [listMarketProfitAndLoss](#listMarketProfitAndLoss)
+* [listMarketTypes](#listMarketTypes)
+* [listTimeRanges](#listTimeRanges)
+* [listVenues](#listVenues)
 * [placeOrders](#placeOrders)
 * [cancelOrders](#cancelOrders)
 * [replaceOrders](#replaceOrders)
@@ -30,12 +30,12 @@ DEVELOP CUSTOM APPS & TURBO CHARGE YOUR BETTING STRATEGY
 * [getAccountFunds](#getAccountFunds)
 * [getDeveloperAppKeys](#getDeveloperAppKeys)
 * [getAccountStatement](#getAccountStatement)
-* [ObjectCurrencyRates](#ObjectCurrencyRates)
+* [listCurrencyRates](#listCurrencyRates)
 * [cancelApplicationSubscription](#cancelApplicationSubscription)
 * [getApplicationSubscriptionHistory](#getApplicationSubscriptionHistory)
 * [getApplicationSubscriptionToken](#getApplicationSubscriptionToken)
-* [ObjectAccountSubscriptionTokens](#ObjectAccountSubscriptionTokens)
-* [ObjectApplicationSubscriptionTokens](#ObjectApplicationSubscriptionTokens)
+* [listAccountSubscriptionTokens](#listAccountSubscriptionTokens)
+* [listApplicationSubscriptionTokens](#listApplicationSubscriptionTokens)
 * [updateApplicationSubscription](#updateApplicationSubscription)
 * [getVendorClientId](#getVendorClientId)
 * [getAffiliateRelation](#getAffiliateRelation)
@@ -48,9 +48,9 @@ DEVELOP CUSTOM APPS & TURBO CHARGE YOUR BETTING STRATEGY
 * [extendSession](#extendSession)
 * [startSslSession](#startSslSession)
  
-<a name="ObjectCompetitions"/>
-## Betfair.ObjectCompetitions
-Returns a Object of Competitions (i.e., World Cup 2013) associated with the markets selected by theMarketFilter. Currently only Football markets have an associated competition.
+<a name="listCompetitions"/>
+## Betfair.listCompetitions
+Returns a list of Competitions (i.e., World Cup 2013) associated with the markets selected by theMarketFilter. Currently only Football markets have an associated competition.
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -59,9 +59,9 @@ Returns a Object of Competitions (i.e., World Cup 2013) associated with the mark
 | filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
 | locale      | String     | The language used forthe response. If notspecified, the default isreturned.
 
-<a name="ObjectCountries"/>
-## Betfair.ObjectCountries
-Returns a Object of Countries associated with the markets selected by the MarketFilter.
+<a name="listCountries"/>
+## Betfair.listCountries
+Returns a list of Countries associated with the markets selected by the MarketFilter.
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -70,9 +70,9 @@ Returns a Object of Countries associated with the markets selected by the Market
 | filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
 | locale      | String     | The language used forthe response. If notspecified, the default isreturned.
 
-<a name="ObjectCurrentOrders"/>
-## Betfair.ObjectCurrentOrders
-Returns a Object of your current orders. Optionally you can filter and sort your current orders using thevarious parameters, setting none of the parameters will return all of your current orders up to a maximumof 1000 bets, ordered BY_BET and sorted EARLIEST_TO_LATEST. To retrieve more than 1000 orders,you need to make use of the fromRecord and recordCount parameters.
+<a name="listCurrentOrders"/>
+## Betfair.listCurrentOrders
+Returns a list of your current orders. Optionally you can filter and sort your current orders using thevarious parameters, setting none of the parameters will return all of your current orders up to a maximumof 1000 bets, ordered BY_BET and sorted EARLIEST_TO_LATEST. To retrieve more than 1000 orders,you need to make use of the fromRecord and recordCount parameters.
 
 | Field               | Type       | Description
 |---------------------|------------|----------
@@ -89,9 +89,9 @@ Returns a Object of your current orders. Optionally you can filter and sort your
 | fromRecord          | Number     | Specifies the first record that will be returned. Records start at index zero, not at index one.
 | recordCount         | Number     | Specifies how many records will be returned from the index position 'fromRecord'. Note that there is a page size limit of 1000. A value of zero indicates that you would like all records (including and from 'fromRecord') up to the limit.
 
-<a name="ObjectClearedOrders"/>
-## Betfair.ObjectClearedOrders
-Returns a Object of settled bets based on the bet status, ordered by settled date. To retrieve more than 1000 records, you need to make use of the fromRecord and recordCount parameters. By default the service will return all available data for the last 90 days (see Best Practice note below). 
+<a name="listClearedOrders"/>
+## Betfair.listClearedOrders
+Returns a list of settled bets based on the bet status, ordered by settled date. To retrieve more than 1000 records, you need to make use of the fromRecord and recordCount parameters. By default the service will return all available data for the last 90 days (see Best Practice note below). 
 
 | Field                 | Type       | Description
 |-----------------------|------------|----------
@@ -113,9 +113,9 @@ Returns a Object of settled bets based on the bet status, ordered by settled dat
 | fromRecord            | String     | Specifies the first record that will be returned. Records start at index zero.
 | recordCount           | String     | Specifies how many records will be returned, from the index position 'fromRecord'. Note that there is a page size limit of 1000. A value of zero indicates that you would like all records (including and from 'fromRecord') up to the limit.
 
-<a name="ObjectEvents"/>
-## Betfair.ObjectEvents
-Returns a Object of Events (i.e, Reading vs. Man United) associated with the markets selected by the MarketFilter.
+<a name="listEvents"/>
+## Betfair.listEvents
+Returns a list of Events (i.e, Reading vs. Man United) associated with the markets selected by the MarketFilter.
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -124,9 +124,9 @@ Returns a Object of Events (i.e, Reading vs. Man United) associated with the mar
 | filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
-<a name="ObjectEventTypes"/>
-## Betfair.ObjectEventTypes
-Returns a Object of Event Types (i.e. Sports) associated with the markets selected by the MarketFilter.
+<a name="listEventTypes"/>
+## Betfair.listEventTypes
+Returns a list of Event Types (i.e. Sports) associated with the markets selected by the MarketFilter.
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -135,9 +135,9 @@ Returns a Object of Event Types (i.e. Sports) associated with the markets select
 | filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
-<a name="ObjectMarketCatalogue"/>
-## Betfair.ObjectMarketCatalogue
-Returns a Object of information about published (ACTIVE/SUSPENDED) markets that does not change (or changes very rarely). You use ObjectMarketCatalogue to retrieve the name of the market, the names of selections and other information about markets.  Market Data Request Limits apply to requests made to ObjectMarketCatalogue. Please note: ObjectMarketCatalogue does not return markets that are CLOSED.
+<a name="listMarketCatalogue"/>
+## Betfair.listMarketCatalogue
+Returns a list of information about published (ACTIVE/SUSPENDED) markets that does not change (or changes very rarely). You use listMarketCatalogue to retrieve the name of the market, the names of selections and other information about markets.  Market Data Request Limits apply to requests made to listMarketCatalogue. Please note: listMarketCatalogue does not return markets that are CLOSED.
 
 | Field           | Type       | Description
 |-----------------|------------|----------
@@ -149,21 +149,21 @@ Returns a Object of information about published (ACTIVE/SUSPENDED) markets that 
 | maxResults      | Number     | Required: limit on the total number of results returned, must be greater than 0 and less than or equal to 1000.
 | locale          | String     | The language used for the response. If not specified, the default is returned.
 
-<a name="ObjectMarketProfitAndLoss"/>
-## Betfair.ObjectMarketProfitAndLoss
-Retrieve profit and loss for a given Object of OPEN markets. The values are calculated using matched bets and optionally settled bets. Only odds (MarketBettingType = ODDS) markets  are implemented, markets of other types are silently ignored. To retrieve your profit and loss for CLOSED markets, please use the ObjectClearedOrders request. 
+<a name="listMarketProfitAndLoss"/>
+## Betfair.listMarketProfitAndLoss
+Retrieve profit and loss for a given list of OPEN markets. The values are calculated using matched bets and optionally settled bets. Only odds (MarketBettingType = ODDS) markets  are implemented, markets of other types are silently ignored. To retrieve your profit and loss for CLOSED markets, please use the listClearedOrders request. 
 
 | Field             | Type       | Description
 |-------------------|------------|----------
 | appKey            | credentials| Required: The Betfair Application Key.
 | sessionToken      | credentials| Required: The Betfair Session Token.
-| marketIds         | JSON       | Required: JSON Array. Object of markets to calculate profit and loss
+| marketIds         | JSON       | Required: JSON Array. List of markets to calculate profit and loss
 | includeSettledBets| String     | Option to include settled bets (partially settled markets only). Defaults to false if not specified.
 | includeBspBets    | String     | Option to include BSP bets. Defaults to false if not specified.
 | netOfCommission   | String     | Option to return profit and loss net of users current commission rate for this market including any special tariffs. Defaults to false if not specified.
 
-<a name="ObjectMarketTypes"/>
-## Betfair.ObjectMarketTypes
+<a name="listMarketTypes"/>
+## Betfair.listMarketTypes
 Method description
 
 | Field       | Type       | Description
@@ -173,8 +173,8 @@ Method description
 | filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
-<a name="ObjectTimeRanges"/>
-## Betfair.ObjectTimeRanges
+<a name="listTimeRanges"/>
+## Betfair.listTimeRanges
 Method description
 
 | Field       | Type       | Description
@@ -184,8 +184,8 @@ Method description
 | filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | granularity | String([TimeGranularity](#TimeGranularity))     | Required: The granularity of time periods that correspond to markets selected by the market filter.
 
-<a name="ObjectVenues"/>
-## Betfair.ObjectVenues
+<a name="listVenues"/>
+## Betfair.listVenues
 Method description
 
 | Field       | Type       | Description
@@ -299,9 +299,9 @@ Get account statement
 | includeItem  | String([IncludeItem](#IncludeItem))     | Which items to include, if not specified then defaults to ALL.
 | wallet       | String([Wallet](#Wallet))     | 
 
-<a name="ObjectCurrencyRates"/>
-## Betfair.ObjectCurrencyRates
-Returns a Object of currency rates based on given currency. Please note: the currency rates are updated once every hour a few seconds after the hour.
+<a name="listCurrencyRates"/>
+## Betfair.listCurrencyRates
+Returns a list of currency rates based on given currency. Please note: the currency rates are updated once every hour a few seconds after the hour.
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -321,7 +321,7 @@ Method description
 
 <a name="getApplicationSubscriptionHistory"/>
 ## Betfair.getApplicationSubscriptionHistory
-Returns a Object of subscriptions tokens that have been associated with the customers account.  This allows a vendor to identify if a customer has a previous subscription to their application and the status of each subscription.
+Returns a list of subscriptions tokens that have been associated with the customers account.  This allows a vendor to identify if a customer has a previous subscription to their application and the status of each subscription.
 
 | Field         | Type       | Description
 |---------------|------------|----------
@@ -341,8 +341,8 @@ Used to create new subscription tokens for an application. Returns the newly gen
 | subscriptionLength| Number     | How many days the subscription should last. Open ended if value not supplied. Expiry time will be rounded up to midnight on the date of expiry.
 | clientReference   | String     | Any client reference for this subscription token request.
 
-<a name="ObjectAccountSubscriptionTokens"/>
-## Betfair.ObjectAccountSubscriptionTokens
+<a name="listAccountSubscriptionTokens"/>
+## Betfair.listAccountSubscriptionTokens
 Method description
 
 | Field       | Type       | Description
@@ -350,9 +350,9 @@ Method description
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
 
-<a name="ObjectApplicationSubscriptionTokens"/>
-## Betfair.ObjectApplicationSubscriptionTokens
-Returns a Object of subscription tokens for an application based on the subscription status passed in the request. Returns all subscription token details, including the client reference and vendor client Id associated with the subscription token.
+<a name="listApplicationSubscriptionTokens"/>
+## Betfair.listApplicationSubscriptionTokens
+Returns a list of subscription tokens for an application based on the subscription status passed in the request. Returns all subscription token details, including the client reference and vendor client Id associated with the subscription token.
 
 | Field             | Type       | Description
 |-------------------|------------|----------
@@ -382,13 +382,13 @@ Returns the vendor client id for customer account which is a unique identifier f
 
 <a name="getAffiliateRelation"/>
 ## Betfair.getAffiliateRelation
-Return relation between a Object of users and an affiliate
+Return relation between a list of users and an affiliate
 
 | Field          | Type       | Description
 |----------------|------------|----------
 | appKey         | credentials| Required: The Betfair Application Key.
 | sessionToken   | credentials| Required: The Betfair Session Token.
-| vendorClientIds| JSON       | JSON Array. Object of client ids to check affiliation on
+| vendorClientIds| JSON       | JSON Array. List of client ids to check affiliation on
 
 <a name="getVendorDetails"/>
 ## Betfair.getVendorDetails
@@ -641,7 +641,7 @@ ___
 </tr>
 <tr class="even">
 <td align="left"><p>runners</p></td>
-<td align="left"><p>Object <a href="#RunnerCatalog">RunnerCatalog</a></p></td>
+<td align="left"><p>List <a href="#RunnerCatalog">RunnerCatalog</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>The runners (selections) contained in the market</p></td>
 </tr>
@@ -696,7 +696,7 @@ ___
 <td align="left"><p>isMarketDataDelaye d</p></td>
 <td align="left"><p>boolean</p></td>
 <td align="left"><p>Yes</p></td>
-<td align="left"><p>True if the data returned by ObjectMarketBook will be delayed. The data may be delayed because you are not logged in with a funded account or you are using an Application Key that does not allow upto date data.</p></td>
+<td align="left"><p>True if the data returned by listMarketBook will be delayed. The data may be delayed because you are not logged in with a funded account or you are using an Application Key that does not allow upto date data.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>status</p></td>
@@ -784,7 +784,7 @@ ___
 </tr>
 <tr class="odd">
 <td align="left"><p>runners</p></td>
-<td align="left"><p>Object <a href="#Runner">Runner</a></p></td>
+<td align="left"><p>List <a href="#Runner">Runner</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>Information about the runners (selections) inthe market.</p></td>
 </tr>
@@ -872,7 +872,7 @@ ___
 <td align="left"><p>handicap</p></td>
 <td align="left"><p>double</p></td>
 <td align="left"><p>Yes</p></td>
-<td align="left"><p>The handicap.  Enter the specific handicap value (returned by RUNNER in <a href="#ObjectMaketBook)">ObjectMaketBook)</a> if the market is an Asian handicap market.</p></td>
+<td align="left"><p>The handicap.  Enter the specific handicap value (returned by RUNNER in <a href="#listMaketBook)">listMaketBook)</a> if the market is an Asian handicap market.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>status</p></td>
@@ -918,21 +918,21 @@ ___
 </tr>
 <tr class="even">
 <td align="left"><p>orders</p></td>
-<td align="left"><p>Object <a href="#Order">Order</a></p></td>
+<td align="left"><p>List <a href="#Order">Order</a></p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Object of orders in the market</p></td>
+<td align="left"><p>List of orders in the market</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>matches</p></td>
-<td align="left"><p>Object <a href="#Match">Match</a></p></td>
+<td align="left"><p>List <a href="#Match">Match</a></p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Object of matches (i.e, orders that have been fully or partially executed)</p></td>
+<td align="left"><p>List of matches (i.e, orders that have been fully or partially executed)</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>matchesByStrategy</p></td>
 <td align="left"><p>Map String,<a href="#Mat ches">Mat ches</a> =</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>Object of matches for each strategy, ordered by matched data</p></td>
+<td align="left"><p>List of matches for each strategy, ordered by matched data</p></td>
 </tr>
 </tbody>
 </table>
@@ -970,13 +970,13 @@ ___
 </tr>
 <tr class="odd">
 <td align="left"><p>backStakeTaken</p></td>
-<td align="left"><p>Object <a href="#PriceSize">PriceSize</a></p></td>
+<td align="left"><p>List <a href="#PriceSize">PriceSize</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>The total amount of back bets matched at the actual Betfair Starting Price.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>layLiabilityTaken</p></td>
-<td align="left"><p>Object <a href="#PriceSize">PriceSize</a></p></td>
+<td align="left"><p>List <a href="#PriceSize">PriceSize</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>The lay amount matched at the actual Betfair Starting Price.</p></td>
 </tr>
@@ -1010,19 +1010,19 @@ ___
 <tbody>
 <tr class="odd">
 <td align="left"><p>availableToBack</p></td>
-<td align="left"><p>Object <a href="#PriceSize">PriceSize</a></p></td>
+<td align="left"><p>List <a href="#PriceSize">PriceSize</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>No</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>availableToLay</p></td>
-<td align="left"><p>Object <a href="#PriceSize">PriceSize</a></p></td>
+<td align="left"><p>List <a href="#PriceSize">PriceSize</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>No</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>tradedVolume</p></td>
-<td align="left"><p>Object <a href="#PriceSize">PriceSize</a></p></td>
+<td align="left"><p>List <a href="#PriceSize">PriceSize</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>No</p></td>
 </tr>
@@ -1064,7 +1064,7 @@ ___
 <td align="left"><p>countryCode</p></td>
 <td align="left"><p>String</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>The ISO-2 code for the event.  A Object ofISO-2 codes is available via</p></td>
+<td align="left"><p>The ISO-2 code for the event.  A list ofISO-2 codes is available via</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>timezone</p></td>
@@ -1320,7 +1320,7 @@ ___
 <td align="left"><p>countryCode</p></td>
 <td align="left"><p>String</p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p>The ISO-2 code for the event.  A Object ofISO-2 codes is available via</p></td>
+<td align="left"><p>The ISO-2 code for the event.  A list ofISO-2 codes is available via</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>marketCount</p></td>
@@ -1973,7 +1973,7 @@ ___
 <td align="left"><p>handicap</p></td>
 <td align="left"><p><a href="#Handicap">Handicap</a></p></td>
 <td align="left"><p>No</p></td>
-<td align="left"><p><span>The handicap.  Enter the specific handicap value (returned by RUNNER in </span><a href="#ObjectMaketB ook)<span>">ObjectMaketB ook)<span></a> if the marketis an Asian handicap market.</span> Available at MARKET groupBy level or lower.</p></td>
+<td align="left"><p><span>The handicap.  Enter the specific handicap value (returned by RUNNER in </span><a href="#listMaketB ook)<span>">listMaketB ook)<span></a> if the marketis an Asian handicap market.</span> Available at MARKET groupBy level or lower.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>betId</p></td>
@@ -2122,9 +2122,9 @@ ___
 <tbody>
 <tr class="odd">
 <td align="left"><p>clearedOrders</p></td>
-<td align="left"><p>Object <a href="#ClearedOr derSummary">ClearedOr derSummary</a></p></td>
+<td align="left"><p>List <a href="#ClearedOr derSummary">ClearedOr derSummary</a></p></td>
 <td align="left"><p>Yes</p></td>
-<td align="left"><p>The Object of cleared orders returned by your query. This will be a valid Object (i.e. empty or non-empty but never 'null').=</p></td>
+<td align="left"><p>The list of cleared orders returned by your query. This will be a valid list (i.e. empty or non-empty but never 'null').=</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>moreAvailable</p></td>
@@ -2234,9 +2234,9 @@ ___
 <tbody>
 <tr class="odd">
 <td align="left"><p>currentOrders</p></td>
-<td align="left"><p>Object <a href="#CurrentOrderSumma ry">CurrentOrderSumma ry</a></p></td>
+<td align="left"><p>List <a href="#CurrentOrderSumma ry">CurrentOrderSumma ry</a></p></td>
 <td align="left"><p>Yes</p></td>
-<td align="left"><p>The Object of current orders returned by your query. This will be a valid Object (i.e. empty or non-empty but never 'null').=</p></td>
+<td align="left"><p>The list of current orders returned by your query. This will be a valid list (i.e. empty or non-empty but never 'null').=</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>moreAvailable</p></td>
@@ -2517,7 +2517,7 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>instructionReports</p></td>
-<td align="left"><p>Object <a href="#PlaceInstructionR eport">PlaceInstructionR eport</a></p></td>
+<td align="left"><p>List <a href="#PlaceInstructionR eport">PlaceInstructionR eport</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>No</p></td>
 </tr>
@@ -2805,7 +2805,7 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>instructionReports</p></td>
-<td align="left"><p>Object <a href="#CancelInstruction Report">CancelInstruction Report</a></p></td>
+<td align="left"><p>List <a href="#CancelInstruction Report">CancelInstruction Report</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>No</p></td>
 </tr>
@@ -2891,7 +2891,7 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>instructionReports</p></td>
-<td align="left"><p>Object <a href="#ReplaceInstructio nReport">ReplaceInstructio nReport</a></p></td>
+<td align="left"><p>List <a href="#ReplaceInstructio nReport">ReplaceInstructio nReport</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>No</p></td>
 </tr>
@@ -3076,7 +3076,7 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>instructionReports</p></td>
-<td align="left"><p>Object <a href="#UpdateInstruction Report">UpdateInstruction Report</a></p></td>
+<td align="left"><p>List <a href="#UpdateInstruction Report">UpdateInstruction Report</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>No</p></td>
 </tr>
@@ -3216,7 +3216,7 @@ ters. If an empty string is provided it will be treated as null.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>profitAndLosses</p></td>
-<td align="left"><p>Object <a href="#RunnerPro fitAndLoss">RunnerPro fitAndLoss</a></p></td>
+<td align="left"><p>List <a href="#RunnerPro fitAndLoss">RunnerPro fitAndLoss</a></p></td>
 <td align="left"><p>No</p></td>
 <td align="left"><p>Calculated profit and loss data.</p></td>
 </tr>
