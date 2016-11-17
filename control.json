@@ -1,0 +1,432 @@
+{
+    "listCompetitions": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listCompetitions/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|filter": "$filter",
+            "String|locale": "locale"
+        },
+        "parse": []
+    },
+    "listCountries": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listCountries/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|filter": "$filter",
+            "String|locale": "locale"
+        },
+        "parse": []
+    },
+    "listCurrentOrders": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listCurrentOrders/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|betIds": "betIds",
+            "JSON|marketIds": "marketIds",
+            "String|orderProjection": "orderProjection",
+            "JSON|customerOrderRefs": "customerOrderRefs",
+            "JSON|customerStrategyRefs": "customerStrategyRefs",
+            "String|dateRange": "dateRange",
+            "String|orderBy": "orderBy",
+            "String|sortDir": "sortDir",
+            "Number|fromRecord": "fromRecord",
+            "Number|recordCount": "recordCount"
+        },
+        "parse": []
+    },
+    "listClearedOrders": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listClearedOrders/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|betStatus": "$betStatus",
+            "JSON|eventTypeIds": "eventTypeIds",
+            "String|eventIds": "eventIds",
+            "String|marketIds": "marketIds",
+            "String|runnerIds": "runnerIds",
+            "String|betIds": "betIds",
+            "String|customerOrderRefs": "customerOrderRefs",
+            "String|customerStrategyRefs": "customerStrategyRefs",
+            "String|side": "side",
+            "String|settledDateRange": "settledDateRange",
+            "String|groupBy": "groupBy",
+            "String|includeItemDescription": "includeItemDescription",
+            "String|locale": "locale",
+            "String|fromRecord": "fromRecord",
+            "String|recordCount": "recordCount"
+        },
+        "parse": []
+    },
+    "listEvents": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listEvents/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|filter": "$filter",
+            "String|locale": "locale"
+        },
+        "parse": []
+    },
+    "listEventTypes": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listEventTypes/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|filter": "$filter",
+            "String|locale": "locale"
+        },
+        "parse": []
+    },
+    "listMarketCatalogue": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listMarketCatalogue/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|filter": "$filter",
+            "String|marketProjection": "marketProjection",
+            "String|sort": "sort",
+            "Number|maxResults": "$maxResults",
+            "String|locale": "locale"
+        },
+        "parse": []
+    },
+    "listMarketProfitAndLoss": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listMarketProfitAndLoss/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|marketIds": "$marketIds",
+            "String|includeSettledBets": "includeSettledBets",
+            "String|includeBspBets": "includeBspBets",
+            "String|netOfCommission": "netOfCommission"
+        },
+        "parse": []
+    },
+    "listMarketTypes": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listMarketTypes/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|filter": "$filter",
+            "String|locale": "locale"
+        },
+        "parse": []
+    },
+    "listTimeRanges": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listTimeRanges/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|filter": "$filter",
+            "String|granularity": "$granularity"
+        },
+        "parse": []
+    },
+    "listVenues": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listVenues/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|filter": "$filter",
+            "String|locale": "locale"
+        },
+        "parse": []
+    },
+    "placeOrders": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/placeOrders/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|marketId": "$marketId",
+            "JSON|instructions": "$instructions",
+            "String|customerRef": "customerRef",
+            "JSON|marketVersion": "marketVersion",
+            "String|customerStrategyRef": "customerStrategyRef",
+            "String|async": "async"
+        },
+        "parse": []
+    },
+    "cancelOrders": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/cancelOrders/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|marketId": "marketId",
+            "JSON|instructions": "instructions",
+            "String|customerRef": "customerRef"
+        },
+        "parse": []
+    },
+    "replaceOrders": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/replaceOrders/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|marketId": "$marketId",
+            "JSON|instructions": "$instructions",
+            "String|customerRef": "customerRef",
+            "String|marketVersion": "marketVersion",
+            "String|async": "async"
+        },
+        "parse": []
+    },
+    "updateOrders": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/updateOrders/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|marketId": "$marketId",
+            "JSON|instructions": "$instructions",
+            "String|customerRef": "customerRef"
+        },
+        "parse": []
+    },
+    "createDeveloperAppKeys": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/createDeveloperAppKeys/",
+        "method": "POST",
+        "args": {
+            "credentials|sessionToken": "$!sessionToken",
+            "String|appName": "$appName"
+        },
+        "parse": []
+    },
+    "getAccountDetails": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/getAccountDetails/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken"
+        },
+        "parse": []
+    },
+    "getAccountFunds": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/getAccountFunds/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|wallet": "wallet"
+        },
+        "parse": []
+    },
+    "getDeveloperAppKeys": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/getDeveloperAppKeys/",
+        "method": "POST",
+        "args": {
+            "credentials|sessionToken": "$!sessionToken"
+        },
+        "parse": []
+    },
+    "getAccountStatement": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/getAccountStatement/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|locale": "locale",
+            "Number|fromRecord": "fromRecord",
+            "Number|recordCount": "recordCount",
+            "JSON|itemDateRange": "itemDateRange",
+            "String|includeItem": "includeItem",
+            "String|wallet": "wallet"
+        },
+        "parse": []
+    },
+    "listCurrencyRates": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/listCurrencyRates/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|fromCurrency": "fromCurrency"
+        },
+        "parse": []
+    },
+    "transferFunds": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/transferFunds/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|from": "$from",
+            "String|to": "$to",
+            "String|amount": "$amount"
+        },
+        "parse": []
+    },
+    "activateApplicationSubscription": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/activateApplicationSubscription/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|subscriptionToken": "$subscriptionToken"
+        },
+        "parse": []
+    },
+    "cancelApplicationSubscription": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/cancelApplicationSubscription/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|subscriptionToken": "$subscriptionToken"
+        },
+        "parse": []
+    },
+    "getApplicationSubscriptionHistory": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/getApplicationSubscriptionHistory/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|vendorClientId": "vendorClientId",
+            "String|applicationKey": "applicationKey"
+        },
+        "parse": []
+    },
+    "getApplicationSubscriptionToken": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/getApplicationSubscriptionToken/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "Number|subscriptionLength": "subscriptionLength",
+            "String|clientReference": "clientReference"
+        },
+        "parse": []
+    },
+    "listAccountSubscriptionTokens": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/listAccountSubscriptionTokens/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken"
+        },
+        "parse": []
+    },
+    "listApplicationSubscriptionTokens": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/listApplicationSubscriptionTokens/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|subscriptionStatus": "subscriptionStatus"
+        },
+        "parse": []
+    },
+    "updateApplicationSubscription": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/updateApplicationSubscription/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|vendorClientId": "$vendorClientId",
+            "String|subscriptionLength": "$subscriptionLength"
+        },
+        "parse": []
+    },
+    "getVendorClientId": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/getVendorClientId/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken"
+        },
+        "parse": []
+    },
+    "getAffiliateRelation": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/getAffiliateRelation/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|vendorClientIds": "$vendorClientIds"
+        },
+        "parse": []
+    },
+    "getVendorDetails": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/getVendorDetails/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|vendorId": "$vendorId"
+        },
+        "parse": []
+    },
+    "checkAccountSubscriptionToWebApp": {
+        "url": "https://api.betfair.com/exchange/account/rest/v1.0/isAccountSubscribedToWebApp",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "vendorId": "$vendorId"
+        }
+    },
+    "revokeAccessToWebApp": {
+        "url": "https://api.betfair.com/exchange/account/rest/v1.0/revokeAccessToWebApp",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|vendorId": "$vendorId"
+        }
+    },
+    "generateVendorAccessToken": {
+        "url": "https://api.betfair.com/exchange/account/rest/v1.0/token/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|clientId": "$client_id",
+            "String|grantType": "$grant_type",
+            "String|code": "code",
+            "String|clientSecret": "$client_secret",
+            "String|refreshToken": "refresh_token"
+        }
+    },
+    "startSession": {
+        "url": "https://identitysso.betfair.com/api/login",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "String|username": "$username",
+            "String|password": "password"
+        }
+    },
+    "endSession": {
+        "url": "https://identitysso.betfair.com/api/logout",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken"
+        }
+    },
+    "extendSession": {
+        "url": "https://identitysso.betfair.com/api/keepAlive",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken"
+        }
+    }
+}

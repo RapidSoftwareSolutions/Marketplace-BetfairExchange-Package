@@ -1,0 +1,833 @@
+{
+  "package": "Betfair",
+  "tagline": "Betfair Exchange API Package",
+  "description": "",
+  "image": "http://logo.clearbit.com/betfair.com",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Betfair-Package",
+  "accounts": {
+    "domain": "betfair.com",
+    "credentials": [
+      "appKey", "sessionToken"
+    ]
+  },
+  "blocks": [{
+    "name": "listCompetitions",
+    "description": "Returns a list of Competitions (i.e., World Cup 2013) associated with the markets selected by theMarketFilter. Currently only Football markets have an associated competition.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "filter",
+      "type": "JSON",
+      "info": "Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected."
+    }, {
+      "name": "locale",
+      "type": "String",
+      "info": "The language used forthe response. If notspecified, the default isreturned."
+    }]
+  }, {
+    "name": "listCountries",
+    "description": "Returns a list of Countries associated with the markets selected by the MarketFilter.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "filter",
+      "type": "JSON",
+      "info": "Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected."
+    }, {
+      "name": "locale",
+      "type": "String",
+      "info": "The language used forthe response. If notspecified, the default isreturned."
+    }]
+  }, {
+    "name": "listCurrentOrders",
+    "description": "Returns a list of your current orders. Optionally you can filter and sort your current orders using thevarious parameters, setting none of the parameters will return all of your current orders up to a maximumof 1000 bets, ordered BY_BET and sorted EARLIEST_TO_LATEST. To retrieve more than 1000 orders,you need to make use of the fromRecord and recordCount parameters.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "betIds",
+      "type": "JSON",
+      "info": "JSON Array. Optionally restricts the results to the specified bet IDs. A maximum of 250 betId's, or a combination of 250 betId's & marketId's are permitted."
+    }, {
+      "name": "marketIds",
+      "type": "JSON",
+      "info": "JSON Array. Optionally restricts the results to the specified market IDs. A maximum of 250 marketId's, or a combination of 250 marketId's & betId's are permitted."
+    }, {
+      "name": "orderProjection",
+      "type": "String",
+      "info": "Optionally restricts the results to the specified order status."
+    }, {
+      "name": "customerOrderRefs",
+      "type": "JSON",
+      "info": "Optionally restricts the results to the specified customer order references."
+    }, {
+      "name": "customerStrategyRefs",
+      "type": "JSON",
+      "info": "Optionally restricts the results to the specified customer strategy references."
+    }, {
+      "name": "dateRange",
+      "type": "String",
+      "info": "Optionally restricts the results to be from/to the specified date, these dates are contextual to the orders being returned and therefore the dates used to filter on will change to placed, matched, voided or settled dates depending on the orderBy. This date is inclusive, i.e. if an order was placed on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned."
+    }, {
+      "name": "orderBy",
+      "type": "String",
+      "info": "Specifies how the results will be ordered. If no value is passed in, it defaults to BY_BET.  Also acts as a filter such that only orders with a valid value in the field being ordered by will be returned (i.e. BY_VOID_TIME returns only voided orders, BY_SETTLED_TIME (applies to partially settled markets) returns only settled orders and BY_MATCH_TIME returns only orders with a matched date (voided, settled, matched orders)). Note that specifying an orderBy parameter defines the context of the date filter applied by the dateRange parameter (placed, matched, voided or settled date) - see the dateRange parameter description (above) for more information. See also the OrderBy type definition."
+    }, {
+      "name": "sortDir",
+      "type": "String",
+      "info": "Specifies the direction the results will be sorted in. If no value is passed in, it defaults to EARLIEST_TO_LATEST."
+    }, {
+      "name": "fromRecord",
+      "type": "Number",
+      "info": "Specifies the first record that will be returned. Records start at index zero, not at index one."
+    }, {
+      "name": "recordCount",
+      "type": "Number",
+      "info": "Specifies how many records will be returned from the index position 'fromRecord'. Note that there is a page size limit of 1000. A value of zero indicates that you would like all records (including and from 'fromRecord') up to the limit."
+    }]
+  }, {
+    "name": "listClearedOrders",
+    "description": "Returns a list of settled bets based on the bet status, ordered by settled date. To retrieve more than 1000 records, you need to make use of the fromRecord and recordCount parameters. By default the service will return all available data for the last 90 days (see Best Practice note below). ",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "betStatus",
+      "type": "String",
+      "info": "Required: Restricts the results to the specified status."
+    }, {
+      "name": "eventTypeIds",
+      "type": "JSON",
+      "info": "Optionally restricts the results to the specified Event Type IDs."
+    }, {
+      "name": "eventIds",
+      "type": "String",
+      "info": "Optionally restricts the results to the specified Event IDs."
+    }, {
+      "name": "marketIds",
+      "type": "JSON",
+      "info": "Optionally restricts the results to the specified market IDs."
+    }, {
+      "name": "runnerIds",
+      "type": "String",
+      "info": "Optionally restricts the results to the specified Runners."
+    }, {
+      "name": "betIds",
+      "type": "String",
+      "info": "Optionally restricts the results to the specified bet IDs."
+    }, {
+      "name": "customerOrderRefs",
+      "type": "String",
+      "info": "Optionally restricts the results to the specified customer order references."
+    }, {
+      "name": "customerStrategyRefs",
+      "type": "String",
+      "info": "Optionally restricts the results to the specified customer strategy references."
+    }, {
+      "name": "side",
+      "type": "String",
+      "info": "Optionally restricts the results to the specified side."
+    }, {
+      "name": "settledDateRange",
+      "type": "String",
+      "info": "Optionally restricts the results to be from/to the specified settled date. This date is inclusive, i.e. if an order was cleared on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned."
+    }, {
+      "name": "groupBy",
+      "type": "String",
+      "info": "How to aggregate the lines, if not supplied then the lowest level is returned, i.e. bet by bet This is only applicable to SETTLED BetStatus."
+    }, {
+      "name": "includeItemDescription",
+      "type": "String",
+      "info": "If true then an ItemDescription object is included in the response."
+    }, {
+      "name": "locale",
+      "type": "String",
+      "info": "The language used for the itemDescription. If not specified, the customer account default is returned."
+    }, {
+      "name": "fromRecord",
+      "type": "String",
+      "info": "Specifies the first record that will be returned. Records start at index zero."
+    }, {
+      "name": "recordCount",
+      "type": "String",
+      "info": "Specifies how many records will be returned, from the index position 'fromRecord'. Note that there is a page size limit of 1000. A value of zero indicates that you would like all records (including and from 'fromRecord') up to the limit."
+    }]
+  }, {
+    "name": "listEvents",
+    "description": "Returns a list of Events (i.e, Reading vs. Man United) associated with the markets selected by the MarketFilter.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "filter",
+      "type": "JSON",
+      "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+    }, {
+      "name": "locale",
+      "type": "String",
+      "info": "The language used for the response. If not specified, the default is returned."
+    }]
+  }, {
+    "name": "listEventTypes",
+    "description": "Returns a list of Event Types (i.e. Sports) associated with the markets selected by the MarketFilter.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "filter",
+      "type": "JSON",
+      "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+    }, {
+      "name": "locale",
+      "type": "String",
+      "info": "The language used for the response. If not specified, the default is returned."
+    }]
+  }, {
+    "name": "listMarketCatalogue",
+    "description": "Returns a list of information about published (ACTIVE/SUSPENDED) markets that does not change (or changes very rarely). You use listMarketCatalogue to retrieve the name of the market, the names of selections and other information about markets.  Market Data Request Limits apply to requests made to listMarketCatalogue. Please note: listMarketCatalogue does not return markets that are CLOSED.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "filter",
+      "type": "JSON",
+      "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+    }, {
+      "name": "marketProjection",
+      "type": "String",
+      "info": "The type and amount of data returned about the market."
+    }, {
+      "name": "sort",
+      "type": "String",
+      "info": "The order of the results. Will default to RANK if not passed. RANK is an assigned priority that is determined by our Market Operations team in our back-end system. A result's overall rank is derived from the ranking given to the flowing attributes for the result. EventType, Competition, StartTime, MarketType, MarketId. For example, EventType is ranked by the most popular sports types and marketTypes are ranked in the following order: ODDS ASIAN LINE RANGE If all other dimensions of the result are equal, then the results are ranked in MarketId order."
+    }, {
+      "name": "maxResults",
+      "type": "Number",
+      "info": "Required: limit on the total number of results returned, must be greater than 0 and less than or equal to 1000."
+    }, {
+      "name": "locale",
+      "type": "String",
+      "info": "The language used for the response. If not specified, the default is returned."
+    }]
+  }, {
+    "name": "listMarketProfitAndLoss",
+    "description": "Retrieve profit and loss for a given list of OPEN markets. The values are calculated using matched bets and optionally settled bets. Only odds (MarketBettingType = ODDS) markets  are implemented, markets of other types are silently ignored. To retrieve your profit and loss for CLOSED markets, please use the listClearedOrders request. ",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "marketIds",
+      "type": "JSON",
+      "info": "Required: JSON Array. List of markets to calculate profit and loss"
+    }, {
+      "name": "includeSettledBets",
+      "type": "String", 
+      "info": "Option to include settled bets (partially settled markets only). Defaults to false if not specified."
+    }, {
+      "name": "includeBspBets",
+      "type": "String", 
+      "info": "Option to include BSP bets. Defaults to false if not specified."
+    }, {
+      "name": "netOfCommission",
+      "type": "String", 
+      "info": "Option to return profit and loss net of users current commission rate for this market including any special tariffs. Defaults to false if not specified."
+    }]
+  }, {
+    "name": "listMarketTypes",
+    "description": "",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "filter",
+      "type": "JSON",
+      "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+    }, {
+      "name": "locale",
+      "type": "String",
+      "info": "The language used for the response. If not specified, the default is returned."
+    }]
+  }, {
+    "name": "listTimeRanges",
+    "description": "",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "filter",
+      "type": "JSON",
+      "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+    }, {
+      "name": "granularity",
+      "type": "String",
+      "info": "Required: The granularity of time periods that correspond to markets selected by the market filter."
+    }]
+  }, {
+    "name": "listVenues",
+    "description": "",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "filter",
+      "type": "JSON",
+      "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
+    }, {
+      "name": "locale",
+      "type": "String",
+      "info": "The language used for the response. If not specified, the default is returned."
+    }]
+  }, {
+    "name": "placeOrders",
+    "description": "",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "marketId",
+      "type": "String",
+      "info": "Required: The market id these orders are to be placed on"
+    }, {
+      "name": "instructions",
+      "type": "JSON",
+      "info": "Required: The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange.",
+      "test": "[{\"selectionId\": \"1\",\"handicap\": \"0\",\"side\": \"BACK\",\"orderType\": \"LIMIT\",\"limitOrder\": {\"size\": \"0.01\",\"price\": \"1.50\",\"persistenceType\": \"LAPSE\"}}]"
+    }, {
+      "name": "customerRef",
+      "type": "String",
+      "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.   CustomerRef can contain: upper/lower chars, digits, chars : - . _ + * : ; ~ only. Please note: There is a time window associated with the de-duplication of duplicate submissions which is 60 seconds."
+    }, {
+      "name": "marketVersion",
+      "type": "JSON",
+      "info": "Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed."
+    }, {
+      "name": "customerStrategyRef",
+      "type": "String",
+      "info": "An optional reference customers can use to specify which strategy has sent the order. The reference will be returned on order change messages through the stream API. The string is limited to 15 characters. If an empty string is provided it will be treated as null."
+    }, {
+      "name": "async",
+      "type": "String", 
+      "info": "An optional flag (not setting equates to false) which specifies if the orders should be placed asynchronously. Orders can be tracked via the Exchange Stream API or or the API-NG by providing a customerOrderRef for each place order. An order's status will be PENDING and no bet ID will be returned. "
+    }]
+  }, {
+    "name": "cancelOrders",
+    "description": "Cancel all bets OR cancel all bets on a market OR fully or partially cancel particular orders on a market. Only LIMIT orders can be cancelled or partially cancelled once placed.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "marketId",
+      "type": "String",
+      "info": "If marketId and betId aren't supplied all bets are cancelled"
+    }, {
+      "name": "instructions",
+      "test": "[{   \"betId\": 1 }]",
+      "type": "JSON",
+      "info": "All instructions need to be on the same market. If not supplied all bets on the market (if market id is passed) are fully cancelled.  The limit of cancel instructions per request is 60"
+    }, {
+      "name": "customerRef",
+      "type": "String",
+      "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions."
+    }]
+  }, {
+    "name": "replaceOrders",
+    "description": "This operation is logically a bulk cancel followed by a bulk place. The cancel is completed first then the new orders are placed. The new orders will be placed atomically in that they will all be placed or none will be placed. In the case where the new orders cannot be placed the cancellations will not be rolled back. See ReplaceInstruction.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "marketId",
+      "type": "String",
+      "info": "Required: The market id these orders are to be placed on"
+    }, {
+      "name": "instructions",
+      "test": "[{   \"betId\": 1, \"newPrice\": 0 }]",
+      "type": "JSON",
+      "info": "Required: The number of replace instructions. The limit of replace instructions per request is 60." 
+    }, {
+      "name": "customerRef",
+      "type": "String",
+      "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions."
+    }, {
+      "name": "marketVersion",
+      "type": "String",
+      "info": "Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed."
+    }, {
+      "name": "async",
+      "type": "String", 
+      "info": "An optional flag (not setting equates to false) which specifies if the orders should be replaced asynchronously. Orders can be tracked via the Exchange Stream API or the API-NG by providing a customerOrderRef for each replace order. Not available for MOC or LOC bets."
+    }]
+  }, {
+    "name": "updateOrders",
+    "description": "Update non-exposure changing fields",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "marketId",
+      "type": "String",
+      "info": "Required: The market id these orders are to be placed on"
+    }, {
+      "name": "instructions",
+      "type": "String",
+      "info": "Required: The number of update instructions. The limit of update instructions per request is 60"
+    }, {
+      "name": "customerRef",
+      "type": "String",
+      "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions."
+    }]
+  }, {
+    "name": "createDeveloperAppKeys",
+    "description": "Create 2 Application Keys for given user; one 'Delayed and the other 'Live'. You must apply to have your 'Live' App Key activated.",
+    "args": [{
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "appName",
+      "type": "String",
+      "info": "Required: A Display name for the application."
+    }]
+  }, {
+    "name": "getAccountDetails",
+    "description": "Returns the details relating your account, including your discount rate and Betfair point balance.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }]
+  }, {
+    "name": "getAccountFunds",
+    "description": "Get available to bet amount. The getAccounts service will return the UK wallet balance by default from either the UK or AUS Accounts API endpoint if the wallet parameter is not specified.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "wallet",
+      "type": "String",
+      "info": "Name of the wallet in question. Please Note: To return the the Australian Exchange wallet balance you must specify AUSTRALIAN as the Wallet parameter."
+    }]
+  }, {
+    "name": "getDeveloperAppKeys",
+    "description": "Get all application keys owned by the given developer/vendor",
+    "args": [{
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }]
+  }, {
+    "name": "getAccountStatement",
+    "description": "Get account statement",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "locale",
+      "type": "String",
+      "info": "The language to be used where applicable. If not specified, the customer account default is returned."
+    }, {
+      "name": "fromRecord",
+      "type": "Number",
+      "info": "Specifies the first record that will be returned. Records start at index zero. If not specified then it will default to 0."
+    }, {
+      "name": "recordCount",
+      "type": "Number",
+      "info": "Specifies the maximum number of records to be returned. Note that there is a page size limit of 100."
+    }, {
+      "name": "itemDateRange",
+      "type": "JSON",
+      "info": "Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate."
+    }, {
+      "name": "includeItem",
+      "type": "String",
+      "info": "Which items to include, if not specified then defaults to ALL."
+    }, {
+      "name": "wallet",
+      "type": "String",
+      "info": ""
+    }]
+  }, {
+    "name": "listCurrencyRates",
+    "description": "Returns a list of currency rates based on given currency. Please note: the currency rates are updated once every hour a few seconds after the hour.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "fromCurrency",
+      "type": "String",
+      "info": "The currency from which the rates are computed. Please note: GBP is currently the only based currency support"
+    }]
+  }, {
+    "name": "cancelApplicationSubscription",
+    "description": "",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "subscriptionToken",
+      "type": "String",
+      "info": "Required: Subscription token for activation."
+    }]
+  }, {
+    "name": "getApplicationSubscriptionHistory",
+    "description": "Returns a list of subscriptions tokens that have been associated with the customers account.  This allows a vendor to identify if a customer has a previous subscription to their application and the status of each subscription.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "vendorClientId",
+      "type": "String",
+      "info": "The unique customer identifier"
+    }, {
+      "name": "applicationKey",
+      "type": "String",
+      "info": "The unique application identifier"
+    }]
+  }, {
+    "name": "getApplicationSubscriptionToken",
+    "description": "Used to create new subscription tokens for an application. Returns the newly generated subscription token which can be provided to the end user. Please note: A maximum number of 15,000 subscription UNACTIVATED subscriptions tokens can be created at any one time. Attempts to create more subscription tokens will return the error TOO_MANY_REQUESTS error which will restrict creation of further tokens until existing UNACTIVATED subscription tokens have been ACTIVATED or CANCELLED",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "subscriptionLength",
+      "type": "Number",
+      "info": "How many days the subscription should last. Open ended if value not supplied. Expiry time will be rounded up to midnight on the date of expiry."
+    }, {
+      "name": "clientReference",
+      "type": "String",
+      "info": "Any client reference for this subscription token request."
+    }]
+  }, {
+    "name": "listAccountSubscriptionTokens",
+    "description": "",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }]
+  }, {
+    "name": "listApplicationSubscriptionTokens",
+    "description": "Returns a list of subscription tokens for an application based on the subscription status passed in the request. Returns all subscription token details, including the client reference and vendor client Id associated with the subscription token.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "subscriptionStatus",
+      "type": "String",
+      "info": "Optionally filter response by Subscription status of the token"
+    }]
+  }, {
+    "name": "updateApplicationSubscription",
+    "description": "Update an application subscription with a new expiry date. Please note: A subscription token created by this operation *doesn't* need to be activated via activateApplicationSubscription as the token is automatically associated with the customers vendorClientId when the request is made.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "vendorClientId",
+      "type": "String",
+      "info": "Required: The vendor client id for which to update the subscription for"
+    }, {
+      "name": "subscriptionLength",
+      "type": "String",
+      "info": "Required: How many days the subscription should last. Expiry time will be rounded up to midnight on the date of expiry. Any change to the subscription length will override the customers existing subscription."
+    }]
+  }, {
+    "name": "getVendorClientId",
+    "description": "Returns the vendor client id for customer account which is a unique identifier for that customer.  The vendor client Id can be used to obtain the customers application subscription history via getApplicationSubscriptionHistory.  The request requires the X-Authentication header only",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }]
+  }, {
+    "name": "getAffiliateRelation",
+    "description": "Return relation between a list of users and an affiliate",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "vendorClientIds",
+      "type": "JSON",
+      "info": "JSON Array. List of client ids to check affiliation on"
+    }]
+  }, {
+    "name": "getVendorDetails",
+    "description": "",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "vendorId",
+      "type": "String",
+      "info": "Required: The vendor's public identifier"
+    }]
+  }, {
+    "name": "checkAccountSubscriptionToWebApp",
+    "description": "",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "vendorId",
+      "type": "String",
+      "info": "Required: The id of the vendor to check subscription for"
+    }]
+  }, {
+    "name": "revokeAccessToWebApp",
+    "description": "Remove the link between an account and a vendor web app. This will remove the refreshToken for this user-vendor pair subscription.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "vendorId",
+      "type": "String",
+      "info": "Required: Returns whether the request was successful or not"
+    }]
+  }, {
+    "name": "generateVendorAccessToken",
+    "description": "Generate web vendor session based on a standard session identifiable by auth code, vendor secret and app key",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }, {
+      "name": "clientId",
+      "type": "String",
+      "info": "Required: The vendor's vendorId"
+    }, {
+      "name": "grantType",
+      "type": "String",
+      "info": "Required: Whether the vendor is using an authorisation code or a refresh token to get a session"
+    }, {
+      "name": "code",
+      "type": "String",
+      "info": "The authorisation code used to lookup the session to be returned"
+    }, {
+      "name": "clientSecret",
+      "type": "String",
+      "info": "Required: The vendor's private key used to verify their identity"
+    }, {
+      "name": "refreshToken",
+      "type": "String",
+      "info": "The vendor's refresh token if the grant_type is refresh_token"
+    }]
+  }, {
+    "name": "startSession",
+    "description": "The API login endpoint is the simplest method of integration for most applications in terms of expected development time but comes at the cost of being less flexible to edge-cases than the embedded Betfair embedded login page. It will allow a user to provide a username and password or a username and (password + 2 factor auth code) if they have strong authentication enabled.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "username",
+      "type": "String",
+      "info": "Required: The username to be used for the login"
+    }, {
+      "name": "password",
+      "type": "String",
+      "info": "The password to be used for the login. For strong auth customers, this should be their password with a 2 factor auth code appended to the password string."
+    }]
+  }, {
+    "name": "endSession",
+    "description": "You can use Logout to terminate your existing session.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }]
+  }, {
+    "name": "extendSession",
+    "description": "You can use Keep Alive to extend the session timeout period. The minimum session time is currently 20 minutes (Italian Exchange). On the international (.com) Exchange the current session time is 4 hours. Therefore, you should request Keep Alive within this time to prevent session expiry. If you don't call Keep Alive within the specified timeout period, the session will expire. Please note:  Session times aren't determined or extended based on API activity.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "sessionToken",
+      "type": "credentials",
+      "info": "Required: The Betfair Session Token."
+    }]
+  }, {
+    "name": "startSslSession",
+    "description": "The non-interactive login method for API-NG requires that you create and upload a self-signed certificate which will be used, alongside your username and password to authenticate your credentials and generate a session token.",
+    "args": [{
+      "name": "appKey",
+      "type": "credentials",
+      "info": "Required: The Betfair Application Key."
+    }, {
+      "name": "password",
+      "type": "String",
+      "info": "Required: The password of the user logging in."
+    }, {
+      "name": "username",
+      "type": "String",
+      "info": "Required: The username to be used for the login"
+    }, {
+      "name": "cert",
+      "type": "String",
+      "info": "Required: cert file"
+    }, {
+      "name": "key",
+      "type": "String",
+      "info": "Required: key file"
+    }]
+  }]
+}
