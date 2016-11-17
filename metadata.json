@@ -231,7 +231,7 @@
       "info": "Required: The filter to select desired markets. All markets that match the criteria in the filter are selected."
     }, {
       "name": "marketProjection",
-      "type": "String",
+      "type": "JSON",
       "info": "The type and amount of data returned about the market."
     }, {
       "name": "sort",
@@ -446,7 +446,7 @@
       "info": "Required: The market id these orders are to be placed on"
     }, {
       "name": "instructions",
-      "type": "String",
+      "type": "JSON",
       "info": "Required: The number of update instructions. The limit of update instructions per request is 60"
     }, {
       "name": "customerRef",
