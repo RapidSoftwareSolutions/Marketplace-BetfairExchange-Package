@@ -55,7 +55,7 @@
             "JSON|customerOrderRefs": "customerOrderRefs",
             "JSON|customerStrategyRefs": "customerStrategyRefs",
             "String|side": "side",
-            "String|settledDateRange": "settledDateRange",
+            "JSON|settledDateRange": "settledDateRange",
             "String|groupBy": "groupBy",
             "String|includeItemDescription": "includeItemDescription",
             "String|locale": "locale",
