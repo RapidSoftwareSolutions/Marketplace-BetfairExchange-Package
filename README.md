@@ -6,8 +6,16 @@ DEVELOP CUSTOM APPS & TURBO CHARGE YOUR BETTING STRATEGY
 * Credentials: appKey, sessionToken
 
 ## How to get credentials: 
-0. Item one 
-1. Item two
+0. Login into your Betfair account via [www.betfair.com](http://betfair.com)
+1. Using a *separate browser window*, click on the Accounts API Demo Tool link & ensure the Endpoint "UK"/"PROD" is selected.
+2. Select the *createDeveloperAppKeys* operation from the list of Operations on the top left hand side of the Demo Tool. Your *sessionToken* will be automatically added to the 'Session Token (ssoid)' text box.
+3. Enter your *Application Name* (this must be unique) in the '*Request*' column.
+4. Press *Execute* at the bottom of the '*Request*' column.
+5. Your *Application Key* will be returned in the right hand side panel of the Demo Tool under the Application Key column.  Please note:  You may need to expand the *Application Key* column to see the full *Application Key* value which is 16 characters in total. The assigned *Application Key* can be retrieved at anytime using the *getDeveloperAppKeys* request. 
+
+The *Application Key* returned provides access to betting operations and delayed odds data - to be used for development and testing. Please apply for a live Application Key using the application form below once you have completed your development.
+
+
 
 ## TOC: 
 * [listCompetitions](#listCompetitions)
