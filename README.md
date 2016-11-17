@@ -241,7 +241,7 @@ This operation is logically a bulk cancel followed by a bulk place. The cancel i
 | marketId     | String     | Required: The market id these orders are to be placed on
 | instructions | JSON([ReplaceInstruction](#ReplaceInstruction))       | Required: JSON Array of Objects The number of replace instructions. The limit of replace instructions per request is 60.
 | customerRef  | String     | Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.
-| marketVersion| String     | Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.
+| marketVersion      | JSON([MarketVersion](#MarketVersion))        |  JSON Object. Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.
 | async        | String     | An optional flag (not setting equates to false) which specifies if the orders should be replaced asynchronously. Orders can be tracked via the Exchange Stream API or the API-NG by providing a customerOrderRef for each replace order. Not available for MOC or LOC bets.
 
 <a name="updateOrders"/>
@@ -881,6 +881,13 @@ Example:
 </tbody>
 </table>
 
+Example:
+```json
+{
+	"betId": "1"
+}
+```
+
 <a name="ReplaceInstruction"/>
 ## ReplaceInstruction 
 
@@ -914,6 +921,14 @@ Example:
 </tr>
 </tbody>
 </table>
+
+Example:
+```json
+{
+	"betId": "1",
+	"newPrice": 0.99
+}
+```
 
 <a name="UpdateInstruction"/>
 ## UpdateInstruction 
@@ -949,6 +964,13 @@ Example:
 </tbody>
 </table>
 
+Example:
+```json
+{
+	"betId": "1",
+	"newPersistenceType": "LAPSE" 	
+}
+```
 
 <a name="MarketVersion"/>
 ## MarketVersion 
@@ -977,3 +999,11 @@ Example:
 </tr>
 </tbody>
 </table>
+
+
+Example:
+```json
+{
+	"version": "..."
+}
+```

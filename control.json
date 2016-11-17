@@ -182,7 +182,7 @@
             "String|marketId": "$marketId",
             "JSON|instructions": "$instructions",
             "String|customerRef": "customerRef",
-            "String|marketVersion": "marketVersion",
+            "JSON|marketVersion": "marketVersion",
             "String|async": "async"
         },
         "parse": []

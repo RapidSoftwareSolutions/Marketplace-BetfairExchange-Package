@@ -536,7 +536,7 @@
         },
         {
           "name": "marketVersion",
-          "type": "String",
+          "type": "JSON",
           "info": "Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed."
         },
         {
