@@ -146,6 +146,26 @@
         },
         "parse": []
     },
+    "listMarketBook": {
+        "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/listMarketBook/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "JSON|marketIds": "$marketIds",
+            "JSON|priceProjection": "priceProjection",
+            "String|orderProjection": "orderProjection",
+            "String|matchProjection": "matchProjection",
+            "String|includeOverallPosition": "includeOverallPosition",
+            "String|partitionMatchedByStrategyRef": "partitionMatchedByStrategyRef",
+            "JSON|customerStrategyRefs": "customerStrategyRefs",
+            "String|currencyCode": "currencyCode",
+            "String|locale": "locale",
+            "String|matchedSince": "matchedSince",
+            "JSON|betIds": "betIds"
+        },
+        "parse": []
+    },
     "placeOrders": {
         "url": "  https://api.betfair.com/exchange/betting/rest/v1.0/placeOrders/",
         "method": "POST",
