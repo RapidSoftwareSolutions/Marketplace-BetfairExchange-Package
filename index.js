@@ -4,7 +4,7 @@ global.PACKAGE_NAME = "Betfair";
 
 const express       = require('express'),
     bodyParser      = require('body-parser'),
-    API             = require('../package.js'),
+    API             = require('rapi-js-package'),
     fs              = require('fs'),
     lib             = require('./lib'),
     _               = lib.callback;
@@ -24,7 +24,8 @@ app.all(`/api/${PACKAGE_NAME}`, (req, res) => { res.send(metadata); });
 
 for(let func in control) {
     let options = {
-        parseUri: true
+        parseUri:  true,
+        isRawBody: func == 'startSession'
     };
     let {
         method, 
@@ -36,7 +37,6 @@ for(let func in control) {
     app.post(`/api/${PACKAGE_NAME}/${func}`, _(function* (req, res) {
         let opts     = {};
         let authopts = {};
-        let reqopts  = {};
         let r = {
             callback     : "",
             contextWrites: {}
@@ -48,6 +48,7 @@ for(let func in control) {
         let api = new API(url, {
             method: 'POST',
             headers: {
+                'Accept':           'application/json',
                 'X-Application':    req.body.args['appKey'],
                 'X-Authentication': req.body.args['sessionToken']
             }
@@ -60,17 +61,15 @@ for(let func in control) {
             }
 
             options.method    = method;
+            options.body      = opts;
             options.debug     = true;
             options.hasSkip   = true;
             options.eo        = true;
-
-            options.body = opts;
 
             response              = yield api.request(options);
             r.callback            = 'success';
             r.contextWrites['to'] = response;
         } catch(e) {
-            console.log(e)
             r.callback            = 'error';
             r.contextWrites['to'] = e.status_code ? e : {
                 status_code: "API_ERROR",

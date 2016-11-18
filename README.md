@@ -7,7 +7,7 @@ Develop custom apps & turbo charge your betting strategy.
 
 ## How to get credentials: 
 0. Login into your Betfair account via [www.betfair.com](http://betfair.com)
-1. Using a **separate browser window**, click on the Accounts API Demo Tool link & ensure the Endpoint "UK"/"PROD" is selected.
+1. Go to [Accounts API Demo Tool link](https://developer.betfair.com/exchange-api/accounts-api-demo/), ensure the Endpoint "UK"/"PROD" is selected.
 2. Select the **createDeveloperAppKeys** operation from the list of Operations on the top left hand side of the Demo Tool. Your **sessionToken** will be automatically added to the 'Session Token (ssoid)' text box.
 3. Enter your **Application Name** (this must be unique) in the '**Request**' column.
 4. Press **Execute** at the bottom of the '**Request**' column.

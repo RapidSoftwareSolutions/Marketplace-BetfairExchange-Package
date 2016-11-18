@@ -333,6 +333,16 @@
         },
         "parse": []
     },
+    "activateApplicationSubscription": {
+        "url": "  https://api.betfair.com/exchange/account/rest/v1.0/activateApplicationSubscription/",
+        "method": "POST",
+        "args": {
+            "credentials|appKey": "$!appKey",
+            "credentials|sessionToken": "$!sessionToken",
+            "String|subscriptionToken": "$subscriptionStatus"
+        },
+        "parse": []
+    },
     "updateApplicationSubscription": {
         "url": "  https://api.betfair.com/exchange/account/rest/v1.0/updateApplicationSubscription/",
         "method": "POST",

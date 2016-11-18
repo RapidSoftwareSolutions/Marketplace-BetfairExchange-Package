@@ -146,6 +146,7 @@
         },
         {
           "name": "betStatus",
+          "test": "SETTLED",
           "type": "String",
           "info": "Required: Restricts the results to the specified status."
         },
@@ -449,6 +450,7 @@
         },
         {
           "name": "instructions",
+          "test": "[{\"orderType\": \"LIMIT\", \"selectionId\": \"1\", \"side\": \"LAY\"}]",
           "type": "JSON",
           "info": "Required: JSON Array of Objects. The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange. See README for more info."
         },
@@ -496,6 +498,7 @@
         {
           "name": "instructions",
           "type": "JSON",
+          "test": "[{\"betId\":\"1\"}]",
           "info": "JSON Array of Object. All instructions need to be on the same market. If not supplied all bets on the market (if market id is passed) are fully cancelled.  The limit of cancel instructions per request is 60. See README for more info."
         },
         {
@@ -526,6 +529,7 @@
         },
         {
           "name": "instructions",
+          "test": "[{\"betId\": 1, \"newPrice\": 0.99}]",
           "type": "JSON",
           "info": "Required: JSON Array of Objects. The number of replace instructions. The limit of replace instructions per request is 60. See README for more info."
         },
@@ -568,6 +572,7 @@
         {
           "name": "instructions",
           "type": "JSON",
+          "test": "[{\"betId\": 1, \"newPersistenceType\": \"LAPSE\"}]",
           "info": "Required: JSON Array of Objects. The number of update instructions. The limit of update instructions per request is 60. See README for more info."
         },
         {
@@ -794,6 +799,22 @@
           "name": "sessionToken",
           "type": "credentials",
           "info": "Required: The Betfair Session Token."
+        }
+      ]
+    },
+    {
+      "name": "activateApplicationSubscription",
+      "description": "Activates the customers subscription token for an application. Please note: The request is made by the customers account using their session token (X-Authentication header) only.",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "subscriptionToken",
+          "type": "String",
+          "info": "Required: Subscription token for activation."
         }
       ]
     },
