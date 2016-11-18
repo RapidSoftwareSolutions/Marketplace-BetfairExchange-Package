@@ -65,6 +65,82 @@
       ]
     },
     {
+      "name": "listMarketBook",
+      "description": "Returns a list of dynamic data about markets. Dynamic data includes prices, the status of the market, the status of selections, the traded volume, and the status of any orders you have placed in the market.",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "marketIds",
+          "type": "JSON",
+          "info": "Required: JSON Array. One or more market ids. The number of markets returned depends on the amount of data you request via the price projection."
+        },
+        {
+          "name": "orderProjection",
+          "type": "JSON",
+          "info": "Optionally restricts the results to the specified order status. See README for more info."
+        },
+        {
+          "name": "priceProjection",
+          "type": "String",
+          "info": "The projection of price data you want to receive in the response."
+        },
+        {
+          "name": "matchProjection",
+          "type": "String",
+          "info": "If you ask for orders, specifies the representation of matches."
+        },
+        {
+          "name": "includeOverallPosition",
+          "type": "String",
+          "info": "If you ask for orders, returns matches for each selection. Defaults to true if unspecified."
+        },
+        {
+          "name": "partitionMatchedByStrategyRef",
+          "type": "String",
+          "info": "If you ask for orders, returns the breakdown of matches by strategy for each selection. Defaults to false if unspecified."
+        },
+        {
+          "name": "customerStrategyRefs",
+          "type": "JSON",
+          "info": "JSON Array.  If you ask for orders, restricts the results to orders matching any of the specified set of customer defined strategies. Also filters which matches by strategy for selections are returned, if partitionMatchedByStrategyRef is true. An empty set will be treated as if the parameter has been omitted (or null passed)."
+        },
+        {
+          "name": "currencyCode",
+          "type": "String",
+          "info": "A Betfair standard currency code. If not specified, the default currency code is used."
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The language used for the response. If not specified, the default is returned."
+        },
+        {
+          "name": "matchedSince",
+          "type": "String",
+          "info": " If you ask for orders, restricts the results to orders that have at least one fragment matched since the specified date (all matched fragments of such an order will be returned even if some were matched before the specified date). All EXECUTABLE orders will be returned regardless of matched date."
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The language used for the response. If not specified, the default is returned."
+        },
+        {
+          "name": "betIds",
+          "type": "JSON",
+          "info": "JSON Array. If you ask for orders, restricts the results to orders with the specified bet IDs."
+        }
+      ]
+    },
+    {
       "name": "listCurrentOrders",
       "description": "Returns a list of your current orders. Optionally you can filter and sort your current orders using thevarious parameters, setting none of the parameters will return all of your current orders up to a maximumof 1000 bets, ordered BY_BET and sorted EARLIEST_TO_LATEST. To retrieve more than 1000 orders,you need to make use of the fromRecord and recordCount parameters.",
       "args": [

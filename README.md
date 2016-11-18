@@ -19,6 +19,7 @@ The **Application Key** returned provides access to betting operations and delay
 ## TOC: 
 * [listCompetitions](#listCompetitions)
 * [listCountries](#listCountries)
+* [listMarketBook](#listMarketBook)
 * [listCurrentOrders](#listCurrentOrders)
 * [listClearedOrders](#listClearedOrders)
 * [listEvents](#listEvents)
@@ -76,6 +77,27 @@ Returns a list of Countries associated with the markets selected by the MarketFi
 | sessionToken| credentials| Required: The Betfair Session Token.
 | filter      | JSON([MarketFilter](#MarketFilter))       |  JSON Object. Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
 | locale      | String     | The language used forthe response. If notspecified, the default isreturned.
+
+<a name="listMarketBook"/>
+## Betfair.listMarketBook
+Returns a list of dynamic data about markets. Dynamic data includes prices, the status of the market, the status of selections, the traded volume, and the status of any orders you have placed in the market.
+
+| Field                        | Type       | Description
+|------------------------------|------------|----------
+| appKey                       | credentials| Required: The Betfair Application Key.
+| sessionToken                 | credentials| Required: The Betfair Session Token.
+| marketIds                    | JSON       | Required: JSON Array. One or more market ids. The number of markets returned depends on the amount of data you request via the price projection.
+| orderProjection              | String     | Optionally restricts the results to the specified order status. Valid values: `ALL`, `EXECUTABLE`, `EXECUTION_COMPLETE`
+| priceProjection              | JSON([PriceProjection](#PriceProjection))| JSON Object. The projection of price data you want to receive in the response.
+| matchProjection              | String     | If you ask for orders, specifies the representation of matches. Valid values: `NO_ROLLUP`, `ROLLED_UP_BY_PRICE`, `ROLLED_UP_BY_AVG_PRICE`
+| includeOverallPosition       | String     | If you ask for orders, returns matches for each selection. Defaults to true if unspecified.
+| partitionMatchedByStrategyRef| String     | If you ask for orders, returns the breakdown of matches by strategy for each selection. Defaults to false if unspecified.
+| customerStrategyRefs         | JSON       | JSON Array. If you ask for orders, restricts the results to orders matching any of the specified set of customer defined strategies. Also filters which matches by strategy for selections are returned, if partitionMatchedByStrategyRef is true. An empty set will be treated as if the parameter has been omitted (or null passed).
+| currencyCode                 | String     | A Betfair standard currency code. If not specified, the default currency code is used.
+| locale                       | String     | The language used for the response. If not specified, the default is returned.
+| matchedSince                 | Date       |  If you ask for orders, restricts the results to orders that have at least one fragment matched since the specified date (all matched fragments of such an order will be returned even if some were matched before the specified date). All EXECUTABLE orders will be returned regardless of matched date.
+| locale                       | String     | The language used for the response. If not specified, the default is returned.
+| betIds                       | JSON       | JSON Array. If you ask for orders, restricts the results to orders with the specified bet IDs.
 
 <a name="listCurrentOrders"/>
 ## Betfair.listCurrentOrders
@@ -612,6 +634,118 @@ Example:
 {
 	"from": "2013-08-16T12:33:00.335Z",
 	"to": "2017-08-16T12:33:00.335Z"
+}
+```
+<a name="PriceProjection"/>
+## PriceProjection 
+
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Field name</th>
+<th align="left">Type</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>priceData</p></td>
+<td align="left"><p>String</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>The basic price data you want to receive in the response. Valid values: `SP_AVAILABLE`, `SP_TRADED`, `EX_BEST_OFFERS`, `EX_ALL_OFFERS`, `EX_TRADED`.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>exBestOffersOverrides</p></td>
+<td align="left"><p>JSON([ExBestOffersOverrides](#ExBestOffersOverrides))</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>Options to alter the default representation of best offer prices Applicable to EX_BEST_OFFERS priceData selection</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>virtualise</p></td>
+<td align="left"><p>Boolean</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>Indicates if the returned prices should include virtual prices. Applicable to EX_BEST_OFFERS and EX_ALL_OFFERS priceData selections, default value is false.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>rolloverStakes</p></td>
+<td align="left"><p>Boolean</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>Indicates if the volume returned at each price point should be the absolute value or a cumulative sum of volumes available at the price and all better prices. If unspecified defaults to false. Applicable to EX_BEST_OFFERS and EX_ALL_OFFERS price projections. Not supported as yet.</p></td>
+</tr>
+</tbody>
+</table>
+
+Example:
+```json
+{
+
+}
+```
+
+<a name="ExBestOffersOverrides"/>
+## ExBestOffersOverrides 
+Options to alter the default representation of best offer prices
+
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Field name</th>
+<th align="left">Type</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>bestPricesDepth</p></td>
+<td align="left"><p>Number</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>The maximum number of prices to return on each side for each runner. If unspecified defaults to 3. Maximum returned price depth returned is 10.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>rollupModel</p></td>
+<td align="left"><p>String</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>The model to use when rolling up available sizes. If unspecified defaults to STAKE rollup model with rollupLimit of minimum stake in the specified currency. Valid values: `STAKE`, `PAYOUT`, `MANAGED_LIABILITY`, `NONE`.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>rollupLimit</p></td>
+<td align="left"><p>Number</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>The volume limit to use when rolling up returned sizes. The exact definition of the limit depends on the rollupModel. If no limit is provided it will use minimum stake as default the value. Ignored if no rollup model is specified.
+</p></td>
+<tr class="odd">
+<td align="left"><p>rollupLiabilityThreshold</p></td>
+<td align="left"><p>Double</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>Only applicable when rollupModel is MANAGED_LIABILITY. The rollup model switches from being stake based to liability based at the smallest lay price which is >= rollupLiabilityThreshold.service level default (TBD). Not supported as yet.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>rollupLiabilityFactor</p></td>
+<td align="left"><p>Number</p></td>
+<td align="left"><p>No</p></td>
+<td align="left"><p>Only applicable when rollupModel is MANAGED_LIABILITY. (rollupLiabilityFactor * rollupLimit) is the minimum liabilty the user is deemed to be comfortable with. After the rollupLiabilityThreshold price subsequent volumes will be rolled up to minimum value such that the liability >= the minimum liability.service level default (5). Not supported as yet.</p></td>
+</tr>
+</tbody>
+</table>
+
+Example:
+```json
+{
+
 }
 ```
 
