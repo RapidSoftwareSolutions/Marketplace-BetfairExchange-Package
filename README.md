@@ -516,8 +516,8 @@ Search for races to get their details.
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| meetingIds  | JSON       | JSON Array. Optionally restricts the results to the specified meeting IDs. The unique Id for the meeting equivalent to the eventId for that specific race as returned by listEvents.  Optionally restricts the results to the specified meeting IDs.
-| raceIds     | JSON       | JSON Array. Optionally restricts the results to the specified race IDs. The unique Id for the race in the format meetingid.raceTime (hhmm). raceTime is in GMT.  Optionally restricts the results to the specified race IDs.
+| meetingIds  | JSON       | JSON Array. Optionally restricts the results to the specified meeting IDs. The unique Id for the meeting equivalent to the eventId for that specific race as returned by listEvents.  Optionally restricts the results to the specified meeting IDs. Example: `["meetid1", "meetid2"]`
+| raceIds     | JSON       | JSON Array. Optionally restricts the results to the specified race IDs. The unique Id for the race in the format meetingid.raceTime (hhmm). raceTime is in GMT.  Optionally restricts the results to the specified race IDs. Example: `["meetid1", "meetid2"]`
 
 <a name="heartbeat"/>
 ## Betfair.heartbeat

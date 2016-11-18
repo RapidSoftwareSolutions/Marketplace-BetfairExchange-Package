@@ -21,7 +21,6 @@ module.exports = (req, res) => {
         return;
     }
 
-
     let options = {
         headers: {
             'Accept':           'application/json',
@@ -38,8 +37,6 @@ module.exports = (req, res) => {
             }
         })
     }
-
-    console.log(options)
 
     request.post(options, (err, response, reslut) => {
         if(!err && (/20.*/).test(response.statusCode)) {
