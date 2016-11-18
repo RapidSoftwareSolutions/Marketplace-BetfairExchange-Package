@@ -55,7 +55,10 @@ The **Application Key** returned provides access to betting operations and delay
 * [endSession](#endSession)
 * [extendSession](#extendSession)
 * [startSslSession](#startSslSession)
- 
+* [listRaceDetails](#listRaceDetails)
+* [heartbeat](#heartbeat)
+
+
 <a name="listCompetitions"/>
 ## Betfair.listCompetitions
 Returns a list of Competitions (i.e., World Cup 2013) associated with the markets selected by theMarketFilter. Currently only Football markets have an associated competition.
@@ -503,6 +506,30 @@ The non-interactive login method for API-NG requires that you create and upload 
 | username| String     | Required: The username to be used for the login
 | cert    | String     | Required: cert file
 | key     | String     | Required: key file
+
+
+<a name="listRaceDetails"/>
+## Betfair.listRaceDetails
+Search for races to get their details.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| appKey      | credentials| Required: The Betfair Application Key.
+| sessionToken| credentials| Required: The Betfair Session Token.
+| meetingIds  | JSON       | JSON Array. Optionally restricts the results to the specified meeting IDs. The unique Id for the meeting equivalent to the eventId for that specific race as returned by listEvents.  Optionally restricts the results to the specified meeting IDs.
+| raceIds     | JSON       | JSON Array. Optionally restricts the results to the specified race IDs. The unique Id for the race in the format meetingid.raceTime (hhmm). raceTime is in GMT.  Optionally restricts the results to the specified race IDs.
+
+<a name="heartbeat"/>
+## Betfair.heartbeat
+This heartbeat operation is provided to help customers have their positions managed automatically in the event of their API clients losing connectivity with the Betfair API. If a heartbeat request is not received within a prescribed time period, then Betfair will attempt to cancel all 'LIMIT' type bets for the given customer on the given exchange. There is no guarantee that this service will result in all bets being cancelled as there are a number of circumstances where bets are unable to be cancelled. Manual intervention is strongly advised in the event of a loss of connectivity to ensure that positions are correctly managed. If this service becomes unavailable for any reason, then your heartbeat will be unregistered automatically to avoid bets being inadvertently cancelled upon resumption of service. you should manage your position manually until the service is resumed. Heartbeat data may also be lost in the unlikely event of nodes failing within the cluster, which may result in your position not being managed until a subsequent heartbeat request is received.
+
+| Field                  | Type       | Description
+|------------------------|------------|----------
+| appKey                 | credentials| Required: The Betfair Application Key.
+| sessionToken           | credentials| Required: The Betfair Session Token.
+| preferredTimeoutSeconds| Number     | Maximum period in seconds that may elapse (without a subsequent heartbeat request), before a cancellation request is automatically submitted on your behalf. The minimum value is 10, the maximum value permitted is 300. Passing 0 will result in your heartbeat being unregistered (or ignored if you have no current heartbeat registered). You will still get an actionPerformed value returned when passing 0, so this may be used to determine if any action was performed since your last heartbeat, without actually registering a new heartbeat. Passing a negative value will result in an error being returned, INVALID_INPUT_DATA. Any errors while registering your heartbeat will result in a error being returned, UNEXPECTED_ERROR. Passing a value that is less than the minimum timeout will result in your heartbeat adopting the minimum timeout. Passing a value that is greater than the maximum timeout will result in your heartbeat adopting the maximum timeout. The minimum and maximum timeouts are subject to change, so your client should utilise the returned actualTimeoutSeconds to set an appropriate frequency for your subsequent heartbeat requests.
+
+
 
 ___
 

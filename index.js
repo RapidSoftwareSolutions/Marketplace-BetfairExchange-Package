@@ -82,6 +82,8 @@ for(let func in control) {
 }
 
 app.post(`/api/${PACKAGE_NAME}/startSslSession`, require('./api/startSslSession.js'))
+app.post(`/api/${PACKAGE_NAME}/listRaceDetails`, require('./api/listRaceDetails.js'))
+app.post(`/api/${PACKAGE_NAME}/heartbeat`, require('./api/heartbeat'))
 
 app.listen(PORT);
 module.exports = app;
