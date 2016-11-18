@@ -4,7 +4,7 @@ global.PACKAGE_NAME = "Betfair";
 
 const express       = require('express'),
     bodyParser      = require('body-parser'),
-    API             = require('rapi-js-package'),
+    API             = require('../package.js'),
     fs              = require('fs'),
     lib             = require('./lib'),
     _               = lib.callback;
