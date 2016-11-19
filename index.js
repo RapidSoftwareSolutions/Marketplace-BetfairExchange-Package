@@ -62,7 +62,7 @@ for(let func in control) {
 
             options.method    = method;
             options.body      = opts;
-            options.debug     = true;
+            //options.debug     = true;
             options.hasSkip   = true;
             options.eo        = true;
 
