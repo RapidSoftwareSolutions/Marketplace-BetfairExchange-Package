@@ -6,8 +6,8 @@ Create automated betting systems or custom interfaces with the Exchange API. Rea
 * Credentials: appKey, sessionToken
 
 ## How to get credentials: 
-0. Login into your Betfair account via [www.betfair.com](http://betfair.com)
-1. Go to [Accounts API Demo Tool link](https://developer.betfair.com/exchange-api/accounts-api-demo/), ensure the Endpoint "UK"/"PROD" is selected.
+0. Login into your Betfair account via www.betfair.com)
+1. Go to Accounts API Demo Tool link), ensure the Endpoint "UK"/"PROD" is selected.
 2. Select the **createDeveloperAppKeys** operation from the list of Operations on the top left hand side of the Demo Tool. Your **sessionToken** will be automatically added to the 'Session Token (ssoid)' text box.
 3. Enter your **Application Name** (this must be unique) in the '**Request**' column.
 4. Press **Execute** at the bottom of the '**Request**' column.
@@ -23,7 +23,7 @@ Returns a list of Competitions (i.e., World Cup 2013) associated with the market
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required: JSON Object. The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
+| filter      | JSON(MarketFilter)       | Required: JSON Object. The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
 | locale      | String     | The language used forthe response. If notspecified, the default isreturned.
 
 
@@ -34,7 +34,7 @@ Returns a list of Countries associated with the markets selected by the MarketFi
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       |  JSON Object. Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
+| filter      | JSON(MarketFilter)       |  JSON Object. Required: The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected.
 | locale      | String     | The language used forthe response. If notspecified, the default isreturned.
 
 
@@ -47,7 +47,7 @@ Returns a list of dynamic data about markets. Dynamic data includes prices, the 
 | sessionToken                 | credentials| Required: The Betfair Session Token.
 | marketIds                    | JSON       | Required: JSON Array. One or more market ids. The number of markets returned depends on the amount of data you request via the price projection.
 | orderProjection              | String     | Optionally restricts the results to the specified order status. Valid values: `ALL`, `EXECUTABLE`, `EXECUTION_COMPLETE`
-| priceProjection              | JSON([PriceProjection](#PriceProjection))| JSON Object. The projection of price data you want to receive in the response.
+| priceProjection              | JSON(PriceProjection)| JSON Object. The projection of price data you want to receive in the response.
 | matchProjection              | String     | If you ask for orders, specifies the representation of matches. Valid values: `NO_ROLLUP`, `ROLLED_UP_BY_PRICE`, `ROLLED_UP_BY_AVG_PRICE`
 | includeOverallPosition       | String     | If you ask for orders, returns matches for each selection. Defaults to true if unspecified.
 | partitionMatchedByStrategyRef| String     | If you ask for orders, returns the breakdown of matches by strategy for each selection. Defaults to false if unspecified.
@@ -71,7 +71,7 @@ Returns a list of your current orders. Optionally you can filter and sort your c
 | orderProjection     | String     | Optionally restricts the results to the specified order status. Valid values: `ALL`, `EXECUTABLE`, `EXECUTION_COMPLETE`
 | customerOrderRefs   | JSON       | JSON Array. Optionally restricts the results to the specified customer order references.
 | customerStrategyRefs| JSON       | JSON Array. Optionally restricts the results to the specified customer strategy references.
-| dateRange           | JSON([TimeRange](#TimeRange)) |JSON Object. Optionally restricts the results to be from/to the specified date, these dates are contextual to the orders being returned and therefore the dates used to filter on will change to placed, matched, voided or settled dates depending on the orderBy. This date is inclusive, i.e. if an order was placed on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned. See example at bottom. See `TimeRange` example in `JSON Objects` section.
+| dateRange           | JSON(TimeRange) then it will be included in the results. If the from is later than the to, no results will be returned. See example at bottom. See `TimeRange` example in `JSON Objects` section.
 | orderBy             | String     | Specifies how the results will be ordered. If no value is passed in, it defaults to BY_BET.  Also acts as a filter such that only orders with a valid value in the field being ordered by will be returned (i.e. BY_VOID_TIME returns only voided orders, BY_SETTLED_TIME (applies to partially settled markets) returns only settled orders and BY_MATCH_TIME returns only orders with a matched date (voided, settled, matched orders)). Note that specifying an orderBy parameter defines the context of the date filter applied by the dateRange parameter (placed, matched, voided or settled date) - see the dateRange parameter description (above) for more information. See also the OrderBy type definition. Valid values: `BY_BET`, `BY_MARKET`, `BY_MATCH_TIME`, `BY_PLACE_TIME`, `BY_SETTLED_TIME`, `BY_VOID_TIME`
 | sortDir             | String     | Specifies the direction the results will be sorted in. If no value is passed in, it defaults to EARLIEST_TO_LATEST. Valid values: `EARLIEST_TO_LATEST`, `LATEST_TO_EARLIEST`.
 | fromRecord          | Number     | Specifies the first record that will be returned. Records start at index zero, not at index one.
@@ -95,7 +95,7 @@ Returns a list of settled bets based on the bet status, ordered by settled date.
 | customerOrderRefs     | JSON       | JSON Array. Optionally restricts the results to the specified customer order references. `["idExample1", "idExample2"]`
 | customerStrategyRefs  | JSON       | JSON Array. Optionally restricts the results to the specified customer strategy references. `["idExample1", "idExample2"]`
 | side                  | String     | Optionally restricts the results to the specified side. Valid values: `BACK`, `LAY`.
-| settledDateRange      | JSON([TimeRange](#TimeRange))     | JSON Object. Optionally restricts the results to be from/to the specified settled date. This date is inclusive, i.e. if an order was cleared on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned. See `TimeRange` example in `JSON Objects` section.
+| settledDateRange      | JSON(TimeRange) then it will be included in the results. If the from is later than the to, no results will be returned. See `TimeRange` example in `JSON Objects` section.
 | groupBy               | String     | How to aggregate the lines, if not supplied then the lowest level is returned, i.e. bet by bet This is only applicable to SETTLED BetStatus. Valid values: `EVENT_TYPE`, `EVENT`, `MARKET`, `SIDE`, `BET`
 | includeItemDescription| String     | If true then an ItemDescription object is included in the response.
 | locale                | String     | The language used for the itemDescription. If not specified, the customer account default is returned.
@@ -110,7 +110,7 @@ Returns a list of Events (i.e, Reading vs. Man United) associated with the marke
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter      | JSON(MarketFilter)       | Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
 
@@ -121,7 +121,7 @@ Returns a list of Event Types (i.e. Sports) associated with the markets selected
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required:  JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter      | JSON(MarketFilter)       | Required:  JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
 
@@ -132,7 +132,7 @@ Returns a list of information about published (ACTIVE/SUSPENDED) markets that do
 |-----------------|------------|----------
 | appKey          | credentials| Required: The Betfair Application Key.
 | sessionToken    | credentials| Required: The Betfair Session Token.
-| filter          | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter          | JSON(MarketFilter)       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | marketProjection| JSON       | JSON Array. The type and amount of data returned about the market. Valid values: `COMPETITION`, `EVENT`, `EVENT_TYPE`, `MARKET_START_TIME`, `MARKET_DESCRIPTION`, `RUNNER_DESCRIPTION`, `RUNNER_METADATA`. Example: `["COMPETITION", "MARKET_DESCRIPTION"]`
 | sort            | String     | Valid Values: `MINIMUM_TRADED` <br>, `MAXIMUM_TRADED` <br> `MINIMUM_AVAILABLE`<br> `MAXIMUM_AVAILABLE` <br> `FIRST_TO_START` <br> `LAST_TO_START`.
 | maxResults      | Number     | Required: limit on the total number of results returned, must be greater than 0 and less than or equal to 1000.
@@ -159,7 +159,7 @@ Returns a list of market types (i.e. MATCH_ODDS, NEXT_GOAL) associated with the 
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required:  JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter      | JSON(MarketFilter)       | Required:  JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
 
@@ -170,7 +170,7 @@ Returns a list of time ranges in the granularity specified in the request (i.e. 
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter      | JSON(MarketFilter)       | Required: The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | granularity | String     | Required: The granularity of time periods that correspond to markets selected by the market filter. Valid values: `DAYS`, `HOURS`, `MINUTES`.
 
 
@@ -181,7 +181,7 @@ Returns a list of Venues (i.e. Cheltenham, Ascot) associated with the markets se
 |-------------|------------|----------
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
-| filter      | JSON([MarketFilter](#MarketFilter))    | Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
+| filter      | JSON(MarketFilter)    | Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected.
 | locale      | String     | The language used for the response. If not specified, the default is returned.
 
 
@@ -193,9 +193,9 @@ Place new orders into market. This operation is atomic in that all orders will b
 | appKey             | credentials| Required: The Betfair Application Key.
 | sessionToken       | credentials| Required: The Betfair Session Token.
 | marketId           | String     | Required: The market id these orders are to be placed on
-| instructions       | JSON([PlaceInstruction](#PlaceInstruction))       | Required: JSON Object. The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange.
+| instructions       | JSON(PlaceInstruction)       | Required: JSON Object. The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange.
 | customerRef        | String     | Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.   CustomerRef can contain: upper/lower chars, digits, chars : - . _ + * : ; ~ only. Please note: There is a time window associated with the de-duplication of duplicate submissions which is 60 seconds.
-| marketVersion      | JSON([MarketVersion](#MarketVersion))        |  JSON Object. Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.
+| marketVersion      | JSON(MarketVersion)        |  JSON Object. Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.
 | customerStrategyRef| String     | An optional reference customers can use to specify which strategy has sent the order. The reference will be returned on order change messages through the stream API. The string is limited to 15 characters. If an empty string is provided it will be treated as null.
 | async              | String     | An optional flag (not setting equates to false) which specifies if the orders should be placed asynchronously. Orders can be tracked via the Exchange Stream API or or the API-NG by providing a customerOrderRef for each place order. An order's status will be PENDING and no bet ID will be returned. 
 
@@ -208,7 +208,7 @@ Cancel all bets OR cancel all bets on a market OR fully or partially cancel part
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
 | marketId    | String     | If marketId and betId aren't supplied all bets are cancelled
-| instructions| JSON([CancelInstruction](#CancelInstruction))       |  JSON Array of Objects. All instructions need to be on the same market. If not supplied all bets on the market (if market id is passed) are fully cancelled.  The limit of cancel instructions per request is 60
+| instructions| JSON(CancelInstruction) are fully cancelled.  The limit of cancel instructions per request is 60
 | customerRef | String     | Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.
 
 
@@ -220,9 +220,9 @@ This operation is logically a bulk cancel followed by a bulk place. The cancel i
 | appKey       | credentials| Required: The Betfair Application Key.
 | sessionToken | credentials| Required: The Betfair Session Token.
 | marketId     | String     | Required: The market id these orders are to be placed on
-| instructions | JSON([ReplaceInstruction](#ReplaceInstruction))       | Required: JSON Array of Objects The number of replace instructions. The limit of replace instructions per request is 60.
+| instructions | JSON(ReplaceInstruction)       | Required: JSON Array of Objects The number of replace instructions. The limit of replace instructions per request is 60.
 | customerRef  | String     | Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.
-| marketVersion      | JSON([MarketVersion](#MarketVersion))        |  JSON Object. Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.
+| marketVersion      | JSON(MarketVersion)        |  JSON Object. Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.
 | async        | String     | An optional flag (not setting equates to false) which specifies if the orders should be replaced asynchronously. Orders can be tracked via the Exchange Stream API or the API-NG by providing a customerOrderRef for each replace order. Not available for MOC or LOC bets.
 
 
@@ -234,7 +234,7 @@ Update non-exposure changing fields
 | appKey      | credentials| Required: The Betfair Application Key.
 | sessionToken| credentials| Required: The Betfair Session Token.
 | marketId    | String     | Required: The market id these orders are to be placed on
-| instructions| JSON([UpdateInstruction](#UpdateInstruction))     | Required: JSON Array of Objects. The number of update instructions. The limit of update instructions per request is 60
+| instructions| JSON(UpdateInstruction)     | Required: JSON Array of Objects. The number of update instructions. The limit of update instructions per request is 60
 | customerRef | String     | Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.
 
 
@@ -284,7 +284,7 @@ Get account statement
 | locale       | String     | The language to be used where applicable. If not specified, the customer account default is returned.
 | fromRecord   | Number     | Specifies the first record that will be returned. Records start at index zero. If not specified then it will default to 0.
 | recordCount  | Number     | Specifies the maximum number of records to be returned. Note that there is a page size limit of 100.
-| itemDateRange| JSON([TimeRange](#TimeRange))       | JSON Array of Objects. Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate. See `TimeRange` example in `JSON Objects` section.
+| itemDateRange| JSON(TimeRange)       | JSON Array of Objects. Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate. See `TimeRange` example in `JSON Objects` section.
 | includeItem  | String     | Which items to include, if not specified then defaults to ALL. Valid values: `ALL`, `DEPOSITS_WITHDRAWALS`, `EXCHANGE`, `POKER_ROOM`
 | wallet       | String     | Name of the wallet in question. Please Note: To return the the Australian Exchange wallet balance you must specify AUSTRALIAN as the Wallet parameter.
 
