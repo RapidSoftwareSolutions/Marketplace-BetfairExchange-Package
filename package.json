@@ -1,7 +1,7 @@
 {
-  "name": "Betfair",
+  "name": "BetfairExchange",
   "version": "1.0.0",
-  "description": "DEVELOP CUSTOM APPS & TURBO CHARGE YOUR BETTING STRATEGY",
+  "description": "Create automated betting systems or custom interfaces with the Exchange API. Read market data, place bets, check current bet details and more.",
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RapidSoftwareSolutions/Marketplace-Betfair-Package.git"
+    "url": "git+https://github.com/RapidSoftwareSolutions/Marketplace-BetfairExchange-Package.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RapidSoftwareSolutions/Marketplace-Betfair-Package/issues"
+    "url": "https://github.com/RapidSoftwareSolutions/Marketplace-BetfairExchange-Package/issues"
   },
-  "homepage": "https://github.com/RapidSoftwareSolutions/Marketplace-Betfair-Package#readme"
+  "homepage": "https://github.com/RapidSoftwareSolutions/Marketplace-BetfairExchange-Package#readme"
 }
