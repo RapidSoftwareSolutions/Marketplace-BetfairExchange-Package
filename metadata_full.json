@@ -785,6 +785,79 @@
       ]
     },
     {
+      "name": "cancelApplicationSubscription",
+      "description": "Cancel the subscription token. The customers subscription will no longer be active once cancelled.",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "subscriptionToken",
+          "type": "String",
+          "info": "Required: Subscription token for activation."
+        }
+      ]
+    },
+    {
+      "name": "getApplicationSubscriptionHistory",
+      "description": "Returns a list of subscriptions tokens that have been associated with the customers account.  This allows a vendor to identify if a customer has a previous subscription to their application and the status of each subscription.",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "vendorClientId",
+          "type": "String",
+          "info": "The unique customer identifier"
+        },
+        {
+          "name": "applicationKey",
+          "type": "String",
+          "info": "The unique application identifier"
+        }
+      ]
+    },
+    {
+      "name": "getApplicationSubscriptionToken",
+      "description": "Used to create new subscription tokens for an application. Returns the newly generated subscription token which can be provided to the end user. Please note: A maximum number of 15,000 subscription UNACTIVATED subscriptions tokens can be created at any one time. Attempts to create more subscription tokens will return the error TOO_MANY_REQUESTS error which will restrict creation of further tokens until existing UNACTIVATED subscription tokens have been ACTIVATED or CANCELLED",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "subscriptionLength",
+          "type": "Number",
+          "info": "How many days the subscription should last. Open ended if value not supplied. Expiry time will be rounded up to midnight on the date of expiry."
+        },
+        {
+          "name": "clientReference",
+          "type": "String",
+          "info": "Any client reference for this subscription token request."
+        }
+      ]
+    },
+    {
       "name": "listAccountSubscriptionTokens",
       "description": "List of subscription tokens associated with the account",
       "args": [
@@ -797,6 +870,22 @@
           "name": "sessionToken",
           "type": "credentials",
           "info": "Required: The Betfair Session Token."
+        }
+      ]
+    },
+    {
+      "name": "activateApplicationSubscription",
+      "description": "Activates the customers subscription token for an application. Please note: The request is made by the customers account using their session token (X-Authentication header) only.",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "subscriptionToken",
+          "type": "String",
+          "info": "Required: Subscription token for activation."
         }
       ]
     },
@@ -822,6 +911,32 @@
       ]
     },
     {
+      "name": "updateApplicationSubscription",
+      "description": "Update an application subscription with a new expiry date. Please note: A subscription token created by this operation *doesn't* need to be activated via activateApplicationSubscription as the token is automatically associated with the customers vendorClientId when the request is made.",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "vendorClientId",
+          "type": "String",
+          "info": "Required: The vendor client id for which to update the subscription for"
+        },
+        {
+          "name": "subscriptionLength",
+          "type": "String",
+          "info": "Required: How many days the subscription should last. Expiry time will be rounded up to midnight on the date of expiry. Any change to the subscription length will override the customers existing subscription."
+        }
+      ]
+    },
+    {
       "name": "getVendorClientId",
       "description": "Returns the vendor client id for customer account which is a unique identifier for that customer.  The vendor client Id can be used to obtain the customers application subscription history via getApplicationSubscriptionHistory.  The request requires the X-Authentication header only",
       "args": [
@@ -834,6 +949,131 @@
           "name": "sessionToken",
           "type": "credentials",
           "info": "Required: The Betfair Session Token."
+        }
+      ]
+    },
+    {
+      "name": "getAffiliateRelation",
+      "description": "Return relation between a list of users and an affiliate",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "vendorClientIds",
+          "type": "JSON",
+          "info": "JSON Array. List of client ids to check affiliation on"
+        }
+      ]
+    },
+    {
+      "name": "getVendorDetails",
+      "description": "Return details about a vendor from its identifier. Response includes Vendor Name and URL.",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "vendorId",
+          "type": "String",
+          "info": "Required: The vendor's public identifier"
+        }
+      ]
+    },
+    {
+      "name": "checkAccountSubscriptionToWebApp",
+      "description": "Return whether an account has authorised a web app.",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "vendorId",
+          "type": "String",
+          "info": "Required: The id of the vendor to check subscription for"
+        }
+      ]
+    },
+    {
+      "name": "revokeAccessToWebApp",
+      "description": "Remove the link between an account and a vendor web app. This will remove the refreshToken for this user-vendor pair subscription.",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "vendorId",
+          "type": "String",
+          "info": "Required: Returns whether the request was successful or not"
+        }
+      ]
+    },
+    {
+      "name": "generateVendorAccessToken",
+      "description": "Generate web vendor session based on a standard session identifiable by auth code, vendor secret and app key",
+      "args": [
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Required: The Betfair Application Key."
+        },
+        {
+          "name": "sessionToken",
+          "type": "credentials",
+          "info": "Required: The Betfair Session Token."
+        },
+        {
+          "name": "clientId",
+          "type": "String",
+          "info": "Required: The vendor's vendorId"
+        },
+        {
+          "name": "grantType",
+          "type": "String",
+          "info": "Required: Whether the vendor is using an authorisation code or a refresh token to get a session"
+        },
+        {
+          "name": "code",
+          "type": "String",
+          "info": "The authorisation code used to lookup the session to be returned"
+        },
+        {
+          "name": "clientSecret",
+          "type": "String",
+          "info": "Required: The vendor's private key used to verify their identity"
+        },
+        {
+          "name": "refreshToken",
+          "type": "String",
+          "info": "The vendor's refresh token if the grant_type is refresh_token"
         }
       ]
     },
