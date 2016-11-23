@@ -1,6 +1,6 @@
 "use strict";
 
-global.PACKAGE_NAME = "Betfair";
+global.PACKAGE_NAME = "BetfairExchange";
 
 const express       = require('express'),
     bodyParser      = require('body-parser'),
