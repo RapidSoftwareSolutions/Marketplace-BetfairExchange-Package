@@ -9,12 +9,15 @@ module.exports = (req, res) => {
     let response,
         args = lib.clearArgs(req.body.args);
 
-    if(Object.keys(args).length < 3) {
+
+    if(!args['preferredTimeoutSeconds']) args['preferredTimeoutSeconds'] = 0;
+
+    if(!args['appKey'] || !args['sessionToken']) {
         r.callback            = 'error';
         r.contextWrites['to'] = {
             status_code: 'REQUIRED_FIELDS',
             status_msg:  'Please, check and fill in required fields.',
-            fields:      ['appKey', 'sessionToken', 'preferredTimeoutSeconds']
+            fields:      ['appKey', 'sessionToken']
         }
 
         res.status(200).send(r);    

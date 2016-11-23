@@ -60,6 +60,9 @@ for(let func in control) {
                 opts[args[arg] + '|' + argarr[0]] = req.body.args[argarr[1]];
             }
 
+            if(args['JSON|filter'] && !opts['$filter|JSON']) opts['$filter|JSON'] = {};
+            if(args['JSON|filter'] && !opts['$filter|JSON']) opts['$filter|JSON'] = {};
+
             options.method    = method;
             options.body      = opts;
             //options.debug     = true;
@@ -68,7 +71,7 @@ for(let func in control) {
 
             response              = yield api.request(options);
             r.callback            = 'success';
-            r.contextWrites['to'] = response;
+            r.contextWrites['to'] = (Array.isArray(response) && response.length == 0) ? {status_msg: 'API returns no results'} : response;
         } catch(e) {
             r.callback            = 'error';
             r.contextWrites['to'] = e.status_code ? e : {
