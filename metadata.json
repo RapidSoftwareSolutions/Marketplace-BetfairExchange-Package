@@ -1,5 +1,5 @@
 {
-  "package": "BetfairExchange",
+  "package": "Betfair",
   "tagline": "Betfair Exchange API Package",
   "description": "Create automated betting systems or custom interfaces with the Exchange API. Read market data, place bets, check current bet details and more.",
   "image": "http://logo.clearbit.com/betfair.com",
