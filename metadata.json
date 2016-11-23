@@ -911,12 +911,12 @@
         },
         {
           "name": "cert",
-          "type": "String",
+          "type": "File",
           "info": "Required: cert file"
         },
         {
           "name": "key",
-          "type": "String",
+          "type": "File",
           "info": "Required: key file"
         }
       ]

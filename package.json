@@ -1,5 +1,5 @@
 {
-  "name": "BetfairExchange",
+  "name": "Betfair",
   "version": "1.0.0",
   "description": "Create automated betting systems or custom interfaces with the Exchange API. Read market data, place bets, check current bet details and more.",
   "main": "index.js",
