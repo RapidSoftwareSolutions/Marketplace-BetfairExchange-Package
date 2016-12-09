@@ -1,6 +1,7 @@
 {
   "package": "Betfair",
   "tagline": "Betfair Exchange API Package",
+  "keywords": ["API", "baseball", "basketball", "bet", "bets", "betting", "bid", "bids", "football", "gamble", "gambling", "game", "gamer", "gaming", "odds", "racing", "sport", "sports"],
   "description": "Create automated betting systems or custom interfaces with the Exchange API. Read market data, place bets, check current bet details and more.",
   "image": "http://logo.clearbit.com/betfair.com",
   "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Betfair-Package",
@@ -19,22 +20,26 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: JSON Object. The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected. See README for more info."
+          "info": "JSON Object. The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected. See README for more info.",
+          "required": true
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used forthe response. If notspecified, the default isreturned."
+          "info": "The language used forthe response. If notspecified, the default isreturned.",
+          "required": false
         }
       ]
     },
@@ -45,22 +50,26 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: JSON Object. The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected. See README for more info."
+          "info": "JSON Object. The filter to selectdesired markets. Allmarkets that match thecriteria in the filter areselected. See README for more info.",
+          "required": true
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used forthe response. If notspecified, the default isreturned."
+          "info": "The language used forthe response. If notspecified, the default isreturned.",
+          "required": false
         }
       ]
     },
@@ -71,72 +80,86 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "marketIds",
           "type": "JSON",
-          "info": "Required: JSON Array. One or more market ids. The number of markets returned depends on the amount of data you request via the price projection."
+          "info": "JSON Array. One or more market ids. The number of markets returned depends on the amount of data you request via the price projection.",
+          "required": true
         },
         {
           "name": "orderProjection",
           "type": "JSON",
-          "info": "Optionally restricts the results to the specified order status. See README for more info."
+          "info": "Optionally restricts the results to the specified order status. See README for more info.",
+          "required": false
         },
         {
           "name": "priceProjection",
           "type": "String",
-          "info": "The projection of price data you want to receive in the response."
+          "info": "The projection of price data you want to receive in the response.",
+          "required": false
         },
         {
           "name": "matchProjection",
           "type": "String",
-          "info": "If you ask for orders, specifies the representation of matches."
+          "info": "If you ask for orders, specifies the representation of matches.",
+          "required": false
         },
         {
           "name": "includeOverallPosition",
           "type": "String",
-          "info": "If you ask for orders, returns matches for each selection. Defaults to true if unspecified."
+          "info": "If you ask for orders, returns matches for each selection. Defaults to true if unspecified.",
+          "required": false
         },
         {
           "name": "partitionMatchedByStrategyRef",
           "type": "String",
-          "info": "If you ask for orders, returns the breakdown of matches by strategy for each selection. Defaults to false if unspecified."
+          "info": "If you ask for orders, returns the breakdown of matches by strategy for each selection. Defaults to false if unspecified.",
+          "required": false
         },
         {
           "name": "customerStrategyRefs",
           "type": "JSON",
-          "info": "JSON Array.  If you ask for orders, restricts the results to orders matching any of the specified set of customer defined strategies. Also filters which matches by strategy for selections are returned, if partitionMatchedByStrategyRef is true. An empty set will be treated as if the parameter has been omitted (or null passed)."
+          "info": "JSON Array.  If you ask for orders, restricts the results to orders matching any of the specified set of customer defined strategies. Also filters which matches by strategy for selections are returned, if partitionMatchedByStrategyRef is true. An empty set will be treated as if the parameter has been omitted (or null passed).",
+          "required": false
         },
         {
           "name": "currencyCode",
           "type": "String",
-          "info": "A Betfair standard currency code. If not specified, the default currency code is used."
+          "info": "A Betfair standard currency code. If not specified, the default currency code is used.",
+          "required": false
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used for the response. If not specified, the default is returned."
+          "info": "The language used for the response. If not specified, the default is returned.",
+          "required": false
         },
         {
           "name": "matchedSince",
           "type": "String",
-          "info": " If you ask for orders, restricts the results to orders that have at least one fragment matched since the specified date (all matched fragments of such an order will be returned even if some were matched before the specified date). All EXECUTABLE orders will be returned regardless of matched date."
+          "info": "If you ask for orders, restricts the results to orders that have at least one fragment matched since the specified date (all matched fragments of such an order will be returned even if some were matched before the specified date). All EXECUTABLE orders will be returned regardless of matched date.",
+          "required": false
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used for the response. If not specified, the default is returned."
+          "info": "The language used for the response. If not specified, the default is returned.",
+          "required": false
         },
         {
           "name": "betIds",
           "type": "JSON",
-          "info": "JSON Array. If you ask for orders, restricts the results to orders with the specified bet IDs."
+          "info": "JSON Array. If you ask for orders, restricts the results to orders with the specified bet IDs.",
+          "required": false
         }
       ]
     },
@@ -147,62 +170,74 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "betIds",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified bet IDs. A maximum of 250 betId's, or a combination of 250 betId's & marketId's are permitted."
+          "info": "JSON Array. Optionally restricts the results to the specified bet IDs. A maximum of 250 betId's, or a combination of 250 betId's & marketId's are permitted.",
+          "required": false
         },
         {
           "name": "marketIds",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified market IDs. A maximum of 250 marketId's, or a combination of 250 marketId's & betId's are permitted."
+          "info": "JSON Array. Optionally restricts the results to the specified market IDs. A maximum of 250 marketId's, or a combination of 250 marketId's & betId's are permitted.",
+          "required": false
         },
         {
           "name": "orderProjection",
           "type": "String",
-          "info": "Optionally restricts the results to the specified order status. See README for more info."
+          "info": "Optionally restricts the results to the specified order status. See README for more info.",
+          "required": false
         },
         {
           "name": "customerOrderRefs",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified customer order references."
+          "info": "JSON Array. Optionally restricts the results to the specified customer order references.",
+          "required": false
         },
         {
           "name": "customerStrategyRefs",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified customer strategy references."
+          "info": "JSON Array. Optionally restricts the results to the specified customer strategy references.",
+          "required": false
         },
         {
           "name": "dateRange",
           "type": "String",
-          "info": "Optionally restricts the results to be from/to the specified date, these dates are contextual to the orders being returned and therefore the dates used to filter on will change to placed, matched, voided or settled dates depending on the orderBy. This date is inclusive, i.e. if an order was placed on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned. See README for more info."
+          "info": "Optionally restricts the results to be from/to the specified date, these dates are contextual to the orders being returned and therefore the dates used to filter on will change to placed, matched, voided or settled dates depending on the orderBy. This date is inclusive, i.e. if an order was placed on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned. See README for more info.",
+          "required": false
         },
         {
           "name": "orderBy",
           "type": "String",
-          "info": "Specifies how the results will be ordered. If no value is passed in, it defaults to BY_BET.  Also acts as a filter such that only orders with a valid value in the field being ordered by will be returned (i.e. BY_VOID_TIME returns only voided orders, BY_SETTLED_TIME (applies to partially settled markets) returns only settled orders and BY_MATCH_TIME returns only orders with a matched date (voided, settled, matched orders)). Note that specifying an orderBy parameter defines the context of the date filter applied by the dateRange parameter (placed, matched, voided or settled date) - see the dateRange parameter description (above) for more information. See also the OrderBy type definition."
+          "info": "Specifies how the results will be ordered. If no value is passed in, it defaults to BY_BET.  Also acts as a filter such that only orders with a valid value in the field being ordered by will be returned (i.e. BY_VOID_TIME returns only voided orders, BY_SETTLED_TIME (applies to partially settled markets) returns only settled orders and BY_MATCH_TIME returns only orders with a matched date (voided, settled, matched orders)). Note that specifying an orderBy parameter defines the context of the date filter applied by the dateRange parameter (placed, matched, voided or settled date) - see the dateRange parameter description (above) for more information. See also the OrderBy type definition.",
+          "required": false
         },
         {
           "name": "sortDir",
           "type": "String",
-          "info": "Specifies the direction the results will be sorted in. If no value is passed in, it defaults to EARLIEST_TO_LATEST."
+          "info": "Specifies the direction the results will be sorted in. If no value is passed in, it defaults to EARLIEST_TO_LATEST.",
+          "required": false
         },
         {
           "name": "fromRecord",
           "type": "Number",
-          "info": "Specifies the first record that will be returned. Records start at index zero, not at index one."
+          "info": "Specifies the first record that will be returned. Records start at index zero, not at index one.",
+          "required": false
         },
         {
           "name": "recordCount",
           "type": "Number",
-          "info": "Specifies how many records will be returned from the index position 'fromRecord'. Note that there is a page size limit of 1000. A value of zero indicates that you would like all records (including and from 'fromRecord') up to the limit."
+          "info": "Specifies how many records will be returned from the index position 'fromRecord'. Note that there is a page size limit of 1000. A value of zero indicates that you would like all records (including and from 'fromRecord') up to the limit.",
+          "required": false
         }
       ]
     },
@@ -213,87 +248,104 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "betStatus",
           "type": "String",
-          "info": "Required: Restricts the results to the specified status."
+          "info": "Restricts the results to the specified status.",
+          "required": true
         },
         {
           "name": "eventTypeIds",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified Event Type IDs."
+          "info": "JSON Array. Optionally restricts the results to the specified Event Type IDs.",
+          "required": false
         },
         {
           "name": "eventIds",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified Event IDs."
+          "info": "JSON Array. Optionally restricts the results to the specified Event IDs.",
+          "required": false
         },
         {
           "name": "marketIds",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified market IDs."
+          "info": "JSON Array. Optionally restricts the results to the specified market IDs.",
+          "required": false
         },
         {
           "name": "runnerIds",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified Runners."
+          "info": "JSON Array. Optionally restricts the results to the specified Runners.",
+          "required": false
         },
         {
           "name": "betIds",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified bet IDs."
+          "info": "JSON Array. Optionally restricts the results to the specified bet IDs.",
+          "required": false
         },
         {
           "name": "customerOrderRefs",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified customer order references."
+          "info": "JSON Array. Optionally restricts the results to the specified customer order references.",
+          "required": false
         },
         {
           "name": "customerStrategyRefs",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified customer strategy references."
+          "info": "JSON Array. Optionally restricts the results to the specified customer strategy references.",
+          "required": false
         },
         {
           "name": "side",
           "type": "String",
-          "info": "Optionally restricts the results to the specified side."
+          "info": "Optionally restricts the results to the specified side.",
+          "required": false
         },
         {
           "name": "settledDateRange",
           "type": "String",
-          "info": "Optionally restricts the results to be from/to the specified settled date. This date is inclusive, i.e. if an order was cleared on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned."
+          "info": "Optionally restricts the results to be from/to the specified settled date. This date is inclusive, i.e. if an order was cleared on exactly this date (to the millisecond) then it will be included in the results. If the from is later than the to, no results will be returned.",
+          "required": false
         },
         {
           "name": "groupBy",
           "type": "String",
-          "info": "How to aggregate the lines, if not supplied then the lowest level is returned, i.e. bet by bet This is only applicable to SETTLED BetStatus."
+          "info": "How to aggregate the lines, if not supplied then the lowest level is returned, i.e. bet by bet This is only applicable to SETTLED BetStatus.",
+          "required": false
         },
         {
           "name": "includeItemDescription",
           "type": "String",
-          "info": "If true then an ItemDescription object is included in the response."
+          "info": "If true then an ItemDescription object is included in the response.",
+          "required": false
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used for the itemDescription. If not specified, the customer account default is returned."
+          "info": "The language used for the itemDescription. If not specified, the customer account default is returned.",
+          "required": false
         },
         {
           "name": "fromRecord",
           "type": "String",
-          "info": "Specifies the first record that will be returned. Records start at index zero."
+          "info": "Specifies the first record that will be returned. Records start at index zero.",
+          "required": false
         },
         {
           "name": "recordCount",
           "type": "String",
-          "info": "Specifies how many records will be returned, from the index position 'fromRecord'. Note that there is a page size limit of 1000. A value of zero indicates that you would like all records (including and from 'fromRecord') up to the limit."
+          "info": "Specifies how many records will be returned, from the index position 'fromRecord'. Note that there is a page size limit of 1000. A value of zero indicates that you would like all records (including and from 'fromRecord') up to the limit.",
+          "required": false
         }
       ]
     },
@@ -304,22 +356,26 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
+          "info": "JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info.",
+          "required": true
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used for the response. If not specified, the default is returned."
+          "info": "The language used for the response. If not specified, the default is returned.",
+          "required": false
         }
       ]
     },
@@ -330,22 +386,26 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
+          "info": "JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info.",
+          "required": true
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used for the response. If not specified, the default is returned."
+          "info": "The language used for the response. If not specified, the default is returned.",
+          "required": false
         }
       ]
     },
@@ -356,37 +416,44 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
+          "info": "JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info.",
+          "required": true
         },
         {
           "name": "marketProjection",
           "type": "JSON",
-          "info": "JSON Array. The type and amount of data returned about the market."
+          "info": "JSON Array. The type and amount of data returned about the market.",
+          "required": false
         },
         {
           "name": "sort",
           "type": "String",
-          "info": "The order of the results. Will default to RANK if not passed. RANK is an assigned priority that is determined by our Market Operations team in our back-end system. A result's overall rank is derived from the ranking given to the flowing attributes for the result. EventType, Competition, StartTime, MarketType, MarketId. For example, EventType is ranked by the most popular sports types and marketTypes are ranked in the following order: ODDS ASIAN LINE RANGE If all other dimensions of the result are equal, then the results are ranked in MarketId order."
+          "info": "The order of the results. Will default to RANK if not passed. RANK is an assigned priority that is determined by our Market Operations team in our back-end system. A result's overall rank is derived from the ranking given to the flowing attributes for the result. EventType, Competition, StartTime, MarketType, MarketId. For example, EventType is ranked by the most popular sports types and marketTypes are ranked in the following order: ODDS ASIAN LINE RANGE If all other dimensions of the result are equal, then the results are ranked in MarketId order.",
+          "required": false
         },
         {
           "name": "maxResults",
           "type": "Number",
-          "info": "Required: limit on the total number of results returned, must be greater than 0 and less than or equal to 1000."
+          "info": "limit on the total number of results returned, must be greater than 0 and less than or equal to 1000.",
+          "required": true
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used for the response. If not specified, the default is returned."
+          "info": "The language used for the response. If not specified, the default is returned.",
+          "required": false
         }
       ]
     },
@@ -397,32 +464,38 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "marketIds",
           "type": "JSON",
-          "info": "Required: JSON Array. List of markets to calculate profit and loss"
+          "info": "JSON Array. List of markets to calculate profit and loss",
+          "required": true
         },
         {
           "name": "includeSettledBets",
           "type": "String",
-          "info": "Option to include settled bets (partially settled markets only). Defaults to false if not specified."
+          "info": "Option to include settled bets (partially settled markets only). Defaults to false if not specified.",
+          "required": false
         },
         {
           "name": "includeBspBets",
           "type": "String",
-          "info": "Option to include BSP bets. Defaults to false if not specified."
+          "info": "Option to include BSP bets. Defaults to false if not specified.",
+          "required": false
         },
         {
           "name": "netOfCommission",
           "type": "String",
-          "info": "Option to return profit and loss net of users current commission rate for this market including any special tariffs. Defaults to false if not specified."
+          "info": "Option to return profit and loss net of users current commission rate for this market including any special tariffs. Defaults to false if not specified.",
+          "required": false
         }
       ]
     },
@@ -433,22 +506,26 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
+          "info": "JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info.",
+          "required": true
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used for the response. If not specified, the default is returned."
+          "info": "The language used for the response. If not specified, the default is returned.",
+          "required": false
         }
       ]
     },
@@ -459,22 +536,26 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
+          "info": "JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info.",
+          "required": true
         },
         {
           "name": "granularity",
           "type": "String",
-          "info": "Required: The granularity of time periods that correspond to markets selected by the market filter."
+          "info": "The granularity of time periods that correspond to markets selected by the market filter.",
+          "required": true
         }
       ]
     },
@@ -485,22 +566,26 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "filter",
           "type": "JSON",
-          "info": "Required: JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info."
+          "info": "JSON Object. The filter to select desired markets. All markets that match the criteria in the filter are selected. See README for more info.",
+          "required": true
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language used for the response. If not specified, the default is returned."
+          "info": "The language used for the response. If not specified, the default is returned.",
+          "required": false
         }
       ]
     },
@@ -511,42 +596,50 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "marketId",
           "type": "String",
-          "info": "Required: The market id these orders are to be placed on"
+          "info": "The market id these orders are to be placed on",
+          "required": true
         },
         {
           "name": "instructions",
           "type": "JSON",
-          "info": "Required: JSON Array of Objects. The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange. See README for more info."
+          "info": "JSON Array of Objects. The number of place instructions. The limit of place instructions per request is 200 for the UK/AUS Exchange and 50 for the Italian Exchange. See README for more info.",
+          "required": true
         },
         {
           "name": "customerRef",
           "type": "String",
-          "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.   CustomerRef can contain: upper/lower chars, digits, chars : - . _ + * : ; ~ only. Please note: There is a time window associated with the de-duplication of duplicate submissions which is 60 seconds."
+          "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.   CustomerRef can contain: upper/lower chars, digits, chars : - . _ + * : ; ~ only. Please note: There is a time window associated with the de-duplication of duplicate submissions which is 60 seconds.",
+          "required": false
         },
         {
           "name": "marketVersion",
           "type": "JSON",
-          "info": "JSON Object. Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed. See README for more info."
+          "info": "JSON Object. Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed. See README for more info.",
+          "required": false
         },
         {
           "name": "customerStrategyRef",
           "type": "String",
-          "info": "An optional reference customers can use to specify which strategy has sent the order. The reference will be returned on order change messages through the stream API. The string is limited to 15 characters. If an empty string is provided it will be treated as null."
+          "info": "An optional reference customers can use to specify which strategy has sent the order. The reference will be returned on order change messages through the stream API. The string is limited to 15 characters. If an empty string is provided it will be treated as null.",
+          "required": false
         },
         {
           "name": "async",
           "type": "String",
-          "info": "An optional flag (not setting equates to false) which specifies if the orders should be placed asynchronously. Orders can be tracked via the Exchange Stream API or or the API-NG by providing a customerOrderRef for each place order. An order's status will be PENDING and no bet ID will be returned. "
+          "info": "An optional flag (not setting equates to false) which specifies if the orders should be placed asynchronously. Orders can be tracked via the Exchange Stream API or or the API-NG by providing a customerOrderRef for each place order. An order's status will be PENDING and no bet ID will be returned. ",
+          "required": false
         }
       ]
     },
@@ -557,27 +650,32 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "marketId",
           "type": "String",
-          "info": "If marketId and betId aren't supplied all bets are cancelled"
+          "info": "If marketId and betId aren't supplied all bets are cancelled",
+          "required": false
         },
         {
           "name": "instructions",
           "type": "JSON",
-          "info": "JSON Array of Object. All instructions need to be on the same market. If not supplied all bets on the market (if market id is passed) are fully cancelled.  The limit of cancel instructions per request is 60. See README for more info."
+          "info": "JSON Array of Object. All instructions need to be on the same market. If not supplied all bets on the market (if market id is passed) are fully cancelled.  The limit of cancel instructions per request is 60. See README for more info.",
+          "required": false
         },
         {
           "name": "customerRef",
           "type": "String",
-          "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions."
+          "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.",
+          "required": false
         }
       ]
     },
@@ -588,37 +686,44 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "marketId",
           "type": "String",
-          "info": "Required: The market id these orders are to be placed on"
+          "info": "The market id these orders are to be placed on",
+          "required": true
         },
         {
           "name": "instructions",
           "type": "JSON",
-          "info": "Required: JSON Array of Objects. The number of replace instructions. The limit of replace instructions per request is 60. See README for more info."
+          "info": "JSON Array of Objects. The number of replace instructions. The limit of replace instructions per request is 60. See README for more info.",
+          "required": true
         },
         {
           "name": "customerRef",
           "type": "String",
-          "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions."
+          "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.",
+          "required": false
         },
         {
           "name": "marketVersion",
           "type": "JSON",
-          "info": "Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed."
+          "info": "Optional parameter allowing the client to specify which version of the market the orders should be placed on. If the current market version is higher than that sent on an order, the bet will be lapsed.",
+          "required": false
         },
         {
           "name": "async",
           "type": "String",
-          "info": "An optional flag (not setting equates to false) which specifies if the orders should be replaced asynchronously. Orders can be tracked via the Exchange Stream API or the API-NG by providing a customerOrderRef for each replace order. Not available for MOC or LOC bets."
+          "info": "An optional flag (not setting equates to false) which specifies if the orders should be replaced asynchronously. Orders can be tracked via the Exchange Stream API or the API-NG by providing a customerOrderRef for each replace order. Not available for MOC or LOC bets.",
+          "required": false
         }
       ]
     },
@@ -629,27 +734,32 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "marketId",
           "type": "String",
-          "info": "Required: The market id these orders are to be placed on"
+          "info": "The market id these orders are to be placed on",
+          "required": true
         },
         {
           "name": "instructions",
           "type": "JSON",
-          "info": "Required: JSON Array of Objects. The number of update instructions. The limit of update instructions per request is 60. See README for more info."
+          "info": "JSON Array of Objects. The number of update instructions. The limit of update instructions per request is 60. See README for more info.",
+          "required": true
         },
         {
           "name": "customerRef",
           "type": "String",
-          "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions."
+          "info": "Optional parameter allowing the client to pass a unique string (up to 32 chars) that is used to de-dupe mistaken re-submissions.",
+          "required": false
         }
       ]
     },
@@ -660,12 +770,14 @@
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "appName",
           "type": "String",
-          "info": "Required: A Display name for the application."
+          "info": "A Display name for the application.",
+          "required": true
         }
       ]
     },
@@ -676,12 +788,14 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         }
       ]
     },
@@ -692,17 +806,20 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "wallet",
           "type": "String",
-          "info": "Name of the wallet in question. Please Note: To return the the Australian Exchange wallet balance you must specify AUSTRALIAN as the Wallet parameter."
+          "info": "Name of the wallet in question. Please Note: To return the the Australian Exchange wallet balance you must specify AUSTRALIAN as the Wallet parameter.",
+          "required": false
         }
       ]
     },
@@ -713,7 +830,8 @@
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         }
       ]
     },
@@ -724,42 +842,50 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "locale",
           "type": "String",
-          "info": "The language to be used where applicable. If not specified, the customer account default is returned."
+          "info": "The language to be used where applicable. If not specified, the customer account default is returned.",
+          "required": false
         },
         {
           "name": "fromRecord",
           "type": "Number",
-          "info": "Specifies the first record that will be returned. Records start at index zero. If not specified then it will default to 0."
+          "info": "Specifies the first record that will be returned. Records start at index zero. If not specified then it will default to 0.",
+          "required": false
         },
         {
           "name": "recordCount",
           "type": "Number",
-          "info": "Specifies the maximum number of records to be returned. Note that there is a page size limit of 100."
+          "info": "Specifies the maximum number of records to be returned. Note that there is a page size limit of 100.",
+          "required": false
         },
         {
           "name": "itemDateRange",
           "type": "JSON",
-          "info": "JSON Object. Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate. See README for more info."
+          "info": "JSON Object. Return items with an itemDate within this date range. Both from and to date times are inclusive. If from is not specified then the oldest available items will be in range. If to is not specified then the latest items will be in range. nb. This itemDataRange is currently only applied when includeItem is set to ALL or not specified, else items are NOT bound by itemDate. See README for more info.",
+          "required": false
         },
         {
           "name": "includeItem",
           "type": "String",
-          "info": "Which items to include, if not specified then defaults to ALL."
+          "info": "Which items to include, if not specified then defaults to ALL.",
+          "required": false
         },
         {
           "name": "wallet",
           "type": "String",
-          "info": ""
+          "info": "",
+          "required": false
         }
       ]
     },
@@ -770,17 +896,20 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "fromCurrency",
           "type": "String",
-          "info": "The currency from which the rates are computed. Please note: GBP is currently the only based currency support"
+          "info": "The currency from which the rates are computed. Please note: GBP is currently the only based currency support",
+          "required": false
         }
       ]
     },
@@ -791,12 +920,14 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         }
       ]
     },
@@ -807,17 +938,20 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "subscriptionStatus",
           "type": "String",
-          "info": "Optionally filter response by Subscription status of the token"
+          "info": "Optionally filter response by Subscription status of the token",
+          "required": false
         }
       ]
     },
@@ -828,12 +962,14 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         }
       ]
     },
@@ -844,17 +980,20 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "username",
           "type": "String",
-          "info": "Required: The username to be used for the login"
+          "info": "The username to be used for the login",
+          "required": true
         },
         {
           "name": "password",
           "type": "String",
-          "info": "The password to be used for the login. For strong auth customers, this should be their password with a 2 factor auth code appended to the password string."
+          "info": "The password to be used for the login. For strong auth customers, this should be their password with a 2 factor auth code appended to the password string.",
+          "required": false
         }
       ]
     },
@@ -865,12 +1004,14 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         }
       ]
     },
@@ -881,12 +1022,14 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         }
       ]
     },
@@ -897,27 +1040,32 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "password",
           "type": "String",
-          "info": "Required: The password of the user logging in."
+          "info": "The password of the user logging in.",
+          "required": true
         },
         {
           "name": "username",
           "type": "String",
-          "info": "Required: The username to be used for the login"
+          "info": "The username to be used for the login",
+          "required": true
         },
         {
           "name": "cert",
           "type": "File",
-          "info": "Required: cert file"
+          "info": "cert file",
+          "required": true
         },
         {
           "name": "key",
           "type": "File",
-          "info": "Required: key file"
+          "info": "key file",
+          "required": true
         }
       ]
     },
@@ -928,22 +1076,26 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "meetingIds",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified meeting IDs. The unique Id for the meeting equivalent to the eventId for that specific race as returned by listEvents.  Optionally restricts the results to the specified meeting IDs."
+          "info": "JSON Array. Optionally restricts the results to the specified meeting IDs. The unique Id for the meeting equivalent to the eventId for that specific race as returned by listEvents.  Optionally restricts the results to the specified meeting IDs.",
+          "required": false
         },
         {
           "name": "raceIds",
           "type": "JSON",
-          "info": "JSON Array. Optionally restricts the results to the specified race IDs. The unique Id for the race in the format meetingid.raceTime (hhmm). raceTime is in GMT.  Optionally restricts the results to the specified race IDs."
+          "info": "JSON Array. Optionally restricts the results to the specified race IDs. The unique Id for the race in the format meetingid.raceTime (hhmm). raceTime is in GMT.  Optionally restricts the results to the specified race IDs.",
+          "required": false
         }
       ]
     },
@@ -954,17 +1106,20 @@
         {
           "name": "appKey",
           "type": "credentials",
-          "info": "Required: The Betfair Application Key."
+          "info": "The Betfair Application Key.",
+          "required": true
         },
         {
           "name": "sessionToken",
           "type": "credentials",
-          "info": "Required: The Betfair Session Token."
+          "info": "The Betfair Session Token.",
+          "required": true
         },
         {
           "name": "preferredTimeoutSeconds",
           "type": "Number",
-          "info": "Maximum period in seconds that may elapse (without a subsequent heartbeat request), before a cancellation request is automatically submitted on your behalf. The minimum value is 10, the maximum value permitted is 300. Passing 0 will result in your heartbeat being unregistered (or ignored if you have no current heartbeat registered). You will still get an actionPerformed value returned when passing 0, so this may be used to determine if any action was performed since your last heartbeat, without actually registering a new heartbeat. Passing a negative value will result in an error being returned, INVALID_INPUT_DATA. Any errors while registering your heartbeat will result in a error being returned, UNEXPECTED_ERROR. Passing a value that is less than the minimum timeout will result in your heartbeat adopting the minimum timeout. Passing a value that is greater than the maximum timeout will result in your heartbeat adopting the maximum timeout. The minimum and maximum timeouts are subject to change, so your client should utilise the returned actualTimeoutSeconds to set an appropriate frequency for your subsequent heartbeat requests."
+          "info": "Maximum period in seconds that may elapse (without a subsequent heartbeat request), before a cancellation request is automatically submitted on your behalf. The minimum value is 10, the maximum value permitted is 300. Passing 0 will result in your heartbeat being unregistered (or ignored if you have no current heartbeat registered). You will still get an actionPerformed value returned when passing 0, so this may be used to determine if any action was performed since your last heartbeat, without actually registering a new heartbeat. Passing a negative value will result in an error being returned, INVALID_INPUT_DATA. Any errors while registering your heartbeat will result in a error being returned, UNEXPECTED_ERROR. Passing a value that is less than the minimum timeout will result in your heartbeat adopting the minimum timeout. Passing a value that is greater than the maximum timeout will result in your heartbeat adopting the maximum timeout. The minimum and maximum timeouts are subject to change, so your client should utilise the returned actualTimeoutSeconds to set an appropriate frequency for your subsequent heartbeat requests.",
+          "required": false
         }
       ]
     }

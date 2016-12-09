@@ -61,7 +61,6 @@ for(let func in control) {
             }
 
             if(args['JSON|filter'] && !opts['$filter|JSON']) opts['$filter|JSON'] = {};
-            if(args['JSON|filter'] && !opts['$filter|JSON']) opts['$filter|JSON'] = {};
 
             options.method    = method;
             options.body      = opts;
